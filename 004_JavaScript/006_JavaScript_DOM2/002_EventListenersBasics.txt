@@ -1,0 +1,11 @@
+Event listeners in JavaScript are a way to attach functions or event handlers to specific events that occur in the Document Object Model (DOM).
+Event listeners allow you to define how your code should respond when these events occur.
+
+Event Traget -- It represents the element that is the source of the even  
+                 It is accessed through the event.target property inside an event handler, allowing you to identify which DOM element caused the event.
+
+
+We have three main function in EventListeners 
+1-addEventListeners()
+2-removeEventListeners()
+3-dispatcEvents()
