@@ -1,1 +1,48 @@
 Welcome to TailWind
+
+installtion of tailwind
+1-install node firstly
+2-go to tailwind.css and get started and use postcss method
+3- make a folder with tailwind name and open it in vs code -> go to terminal write npm init  ->  it iwll ask file name give tailwind _demo
+4- description-Tailwind -> enter till last page 
+5- install ----   npm i vite 
+6- go to tailwind css or copy from below
+  a- Install Tailwind CSS Install tailwindcss and its peer dependencies via npm, and create your tailwind.config.js file.
+     npm install -D tailwindcss postcss autoprefixer
+     npx tailwindcss init
+  b- Add Tailwind to your PostCSS configuration Add tailwindcss and autoprefixer to your postcss.config.js file, or wherever PostCSS is configured in your project.
+
+      module.exports = {
+      plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    }
+      }
+
+c -Configure your template paths Add the paths to all of your template files in your tailwind.config.js file.
+    /** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js}"],   //here maake content * to configure all files 
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+d- go to pakage.json and make start script using 
+   "start"="vite"
+
+e- make main.css and paste below script--Add the Tailwind directives to your CSS Add the @tailwind directives for each of Tailwind’s layers to your main CSS file.
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+f- make index.html and link main.css instead of style.css and do not go live just go to terminal and type
+   npm start
+  u will local address , hover on that and click -- ctrl+click it will open a document in browser 
+  then come to vscode and in html body test your taliwind 
+
+g- to quit app- ctrl+c
+to start - npm start
+
+make sure we have tailwind.cssand index.html in root folder 
