@@ -1,0 +1,16 @@
+#1-Disadvantages of using Directives->
+
+In Tailwind A number of classes are added to each of the HTML elements. Thus, The tailwind CSS has provided the feature of @apply and @layer directive but
+this benefit comes with a price. By using directive, You are actually shifting the maintainability of the application to the global CSS file.
+
+For example, You have created a button and shifted all the utility classes in a custom ‘btn’ class in the global CSS file. In that case, You have to revisit
+the global CSS file repeatedly. Thus, It will be hindering your developer experience and would become similar to writing Traditional CSS.
+
+
+
+  #2_When to Use Directives?
+
+  Eventually, You must use directives when you are in a situation to reuse the components multiple times in your application. Otherwise, 
+  If you are creating a component for single-use then you must avoid using the directives. Moreover, while using apply directive one must make
+  sure to choose the custom class name very wisely to avoid any confusion in the future. 
+  
