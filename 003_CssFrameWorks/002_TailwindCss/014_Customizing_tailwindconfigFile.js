@@ -1,4 +1,4 @@
-#1-Tailwind Configuration
+/*#1-Tailwind Configuration
 One can use the ‘Tailwind Configuration’ feature to customize the Tailwind CSS according to his/her liking by simply manipulating the configure file of Tailwind CSS.
 This means that one can add custom values of margin, border, colour, screen breakpoints, colors, etc. Eventually, the Complete control of Tailwind CSS customization properties lies in your hands
 
@@ -13,7 +13,9 @@ The theme section is where you can customize colors, fonts, spacing, and more. F
 // npx tailwindcss init confHarry --full
 Extend or Add Utility Classes:  You can add your custom utility classes under the extend 
 
+Every customization will be in extend only but screen customization will be under theme
 
+*/
 module.exports = {
   content: ["*"],
   theme: {
@@ -38,4 +40,3 @@ module.exports = {
 }
 
 
-Every customization will be in extend only but screen customization will be under theme
