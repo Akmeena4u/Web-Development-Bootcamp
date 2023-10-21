@@ -1,0 +1,13 @@
+
+<!--There are 4 different ways that you can apply custom styles in Tailwind CSS:-->
+
+<!-- 1. Tailwind CSS Arbitrary Values As of Tailwind CSS v3.0 and above, we can use arbitrary values in our Tailwind CSS classes using the square bracket notation to apply custom styles on the fly -->
+<div class="h-[4rem] w-[6rem]">  </div>
+<div class="rounded-[5px] py-[4px] px-[0.8rem]">  </div>
+<div class="h-[1rem] w-[4rem] bg-[#0f355b] font-[.custom-font] text-[#e0e3e6]">  </div>
+
+<!--2.Dynamic Classes: You can use square bracket notation to dynamically apply classes based on conditional logic or data values.-->
+<button class="[isAdmin ? 'bg-red-500' : 'bg-blue-500'] text-white">Click me </button>
+
+<!--Computed Classes: You can use square bracket notation to compute class names based on data values. -->
+<div class="[isLarge ? 'm-4' : 'm-2']">Content goes here </div>
