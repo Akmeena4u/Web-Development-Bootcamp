@@ -1,0 +1,27 @@
+Here we will get an absolute guide on how to deploy the Tailwind Site to production with the help of Vite
+
+Deploying a Tailwind website to production with Vite is a straightforward process. Here's a simplified version of the steps:
+
+#1_Production Build:
+Create a production build of your website to optimize assets for faster loading.
+
+
+
+#2_Initiating the Production:
+Use Vite to install the application for production by running npm install Vite. Add Vite to your package.json build command. Then, execute npm run build to build the application, and it will be saved in a 'dist' folder.
+step-1    npm install vite
+step-2   "build"="vite build"   (in pakage .joson in scripts add)
+step-3     npm run build
+
+
+
+#3-Overview - 'Dist' Folder:
+The 'dist' folder contains all your website files. Open it with VS Code, and use a live server extension to preview it. You can deploy this folder on platforms like Vultr, Digital Ocean, GitHub, or Linode.
+
+
+
+#4_Overview - 'Assets' Folder:
+The 'assets' folder contains minified files like CSS, JS, and images optimized for production. It reduces the bandwidth needed to load your website.
+
+
+That's it! You've successfully prepared your Tailwind website for production using Vite. In upcoming tutorials, you'll explore more Tailwind CSS features and concepts.
