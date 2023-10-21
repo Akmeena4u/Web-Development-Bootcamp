@@ -1,0 +1,26 @@
+<!--The Layer directive allows you to create custom classes as a part of the three fundamental layers , the layer directive is used to put the custom class before or after a specific layer.
+
+
+#step-1 Defining layers in tailwind.config.js
+
+
+@tailwind base;
+@tailwind components;
+.componentsafter{
+    text-align: center;
+}
+@tailwind utilities;
+
+@layer utilities{
+    .btn{
+        @apply text-white bg-red-600 rounded-xl px-2 py-1 text-sm;
+    }
+}
+
+-->
+
+<!--Step-2  - Using custom layer  just after utilities class (before componentsafter)-->
+ <button class="btn">Click Me </button>
+
+
+ 
