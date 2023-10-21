@@ -1,0 +1,78 @@
+<!--Tailwind CSS provides a set of utility classes to control font sizes, font families, and text styling.
+
+1-Font Size Classes:
+You can control text size using text- classes followed by a size modifier. Sizes are specified using a scale where sm is small, md is medium, lg is large, xl is extra-large, and so on.-->
+<p class="text-sm">Small text</p>
+<p class="text-md">Medium text</p>
+<p class="text-lg">Large text</p>
+<p class="text-xl">Extra Large text</p>
+
+
+
+
+<!--#2-You can also specify text size using specific values with text- classes:-->
+<p class="text-2xl">2xl text</p>
+<p class="text-3xl">3xl text</p>
+<p class="text-4xl">4xl text</p>
+
+
+
+
+<!--#3-Font Family Classes: You can set the font family for an element using font- classes. By default,  By default, Tailwind includes a set of common font families like sans (sans-serif), serif, and mono -->
+<p class="font-sans">Sans-serif font</p>
+<p class="font-serif">Serif font</p>
+      <!--You can also define custom font families in your tailwind.config.js file and then use them in your HTML.-->
+      // tailwind.config.js
+   module.exports = {
+      theme: {
+        extend: {
+         fontFamily: {
+        custom: ['CustomFont', 'sans'],
+      },
+    },
+  },
+  variants: {},
+  plugins: [],
+};
+
+<p class="font-custom">Custom font</p>
+
+
+
+<!--#4-Font Weight Classes: You can adjust the font weight of text using font- classes. The available options include thin, light, normal, medium, semibold, and bold.-->
+<p class="font-light">Light font</p>
+<p class="font-medium">Medium font</p>
+
+
+
+
+<!--#5-Tailwind TypoGraphy -->
+
+    <!--A-Text Style and Sizing Classes: You can control the text color using text- classes combined with color names or color codes.-->
+    <p class="text-red-500">Red text</p>
+    <p class="text-blue-700">Blue text</p>
+
+    <!--B-You can change the text alignment using classes like text-left, text-center, and text-right.-->
+    <p class="text-left">Left-aligned text</p>
+    <p class="text-center">Center-aligned text</p>
+
+    <!--C- You can transform text using classes like uppercase, lowercase, and capitalize.-->
+    <p class="uppercase">UPPERCASE TEXT</p>
+    <p class="capitalize">capitalize text</p>
+
+    <!--D- Adjust letter spacing and line height with classes like tracking-tight, leading-loose, and so on.-->
+    <p class="tracking-tight">Tight letter spacing</p>
+    <p class="leading-loose">Loose line height</p>
+    <span class="tracking-wider"> A Computer Science portal for Nitw </span> 
+
+    <!--E-CSS List Style Type-- This class specifies the appearance of the list item marker , for that use list-none , list-decimal , list-disc classes -->
+     <ul class="list-disc">   </ul>
+
+   <!--F-PlaceHolder Color-->
+   <input type="text" placeholder="Enter your text" class="class="placeholder-gray-500 p-3 m-2 rounded-lg  ">
+
+  <!--G- Text opacity- you can control text opacity by using the text-opacity utility classes. -->
+   <p class="text-black text-opacity-50">This text has 50% opacity</p>
+
+
+    
