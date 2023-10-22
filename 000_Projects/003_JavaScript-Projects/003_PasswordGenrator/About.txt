@@ -1,0 +1,48 @@
+objective- HERE I have created a password genrator with help of Html , Css,Js that have below feartures :- 
+          1. we can control the lenghth of newly genrated  password
+          2. we can increase strength of password by including uppercase latter, lowercase latters , numbers, symbols 
+          3. finally we can copy our genrated password and use
+
+steps:-
+   HTML-
+       1. make a container to bring our app in center
+       2. make a input box to show generated password
+       3. make a slider to decide the length of the password  with help of the input field range (1,30)
+       4. checkboxes design- make 4 checkboxes for uppercase, lowercase, numbers, and symbols and in labels of input type checkboxes we will write descriptions of all four types checkboxes
+       5. genrate button - make genrate button for genrating password
+
+  CSS:-
+      1. we given default margins and paddings and in body we use  display-flex to make it centered with help of justify-content and align item-center and make gradient backgrownd
+      2. Container design--now lets design our main container -given border, border radius, padding , margins  and given transparent background and in last makes it display-flex for future uses
+      3. inside container - passbox design- - now design h1 inside cointaier and design passbox ... margin-block(used for top bottom margin / margin-inline -left-right margin) , 
+                            and disabled the inputbox so that no one can not write in side that box , and make text-overflow:ellipses to not overflow from box
+      4. slider design- now design slider eith help of dispaly-flex and flex-basis:100%(it gives initial width)
+      5. checkboxes-   use same as slider flex-basis to put checkbox and label on left and right corner of a row , set fonts  , follow same steps for all 4 checkboxes 
+      6. genrate button- give bg and set paddings , fonts, margin ,make font bold , set cursor-pointer , and added a hover features to changes color while hovering on button
+      7.copybutton- to show copy icon in passbox i will use google icons , add google icons link in html head and add copyicon inside passbox
+                    to show copy icon inside passbox we will use absolute positioning wrt passbox
+
+ JS:-
+     1. slider-Initially we access the input slider and sliderval as getElementByid  and store inputsliderval into sliderval to show password len
+        to make this slider val showable according slider change we will add a eventlistener as addEventListener on input operation and action willl be showing pass len
+     2. now same as above we willl acess all other fileds like passbox, lowercase,uppercase, symbol, numbers, genratebutton by getElementById
+     3. genrateButton- we will add a addEventListner as click on genratebutton and after clicking it will perform a task according genratepassword() function and update/store result into passbox
+                       genratepassword()- here we will strore all results inside a varible string  "genpassword" , now to genrate rendom val from numbers , chracter , symbools 
+                                           we will use random module in javascript
+                                           randomNumbers- for random numbers i used math.random and use floor to it to give val as proper decimals and i can also multipy with any multiples
+                                           randomCharcters - here also i will use same math.random and floor to make proper decimal and multiply with AlphabetsLength to give  rabdom val inside 1-26
+                                           alllchars- whatever user will select and whatever will be genrated randomly it will store inside allChars varible according checked boxes
+                                           for loop- we will run to genrate multiple len password i will use loop till inputsliders's len
+     4. copy- to copy genrated password we will aplly listener "click" and operation will be performed using below class if passbox.value.length>=1
+              navigator.clipboard.writetext(passbox.value)
+              in copyicon.title we will add "password copied " to indicate user that your genrated password is copied 
+              here i will also added a check correct sign after password copied and after sometime it became normal to work for next genrated password - here to time period i willuse settimeout()
+     5. to make all checkboxes initially checked i mark all checked ,
+
+
+challenges :--
+             1.Designing a password genrator logic was difficult to proceed intially but by step by step logic i did 
+             2.
+     
+                             
+      
