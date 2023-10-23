@@ -27,5 +27,26 @@ export default Cat;
 
 /* Note:-To have less mess inside the main file(with all the components in the same file) and to reuse components on different pages, we have to make them separately.
        So that we can just import them in any file and use them!  
-       File name must start with uppercase letter.*/
+       File name must start with uppercase letter.
 
+Nest components --: In React, we can nest components inside one another. This helps in creating more complex User Interfaces. It also helps in getting rid of redundant code. 
+                            The components that are nested inside parent components are called child components.
+                            in below example  we have created two components, Book and BookList. Book returns a div that has Book name and author name while BookList returns a div that contains two books.*/
+
+function BookList  () {
+  return (
+    <div>
+      <Book />
+      <Book />
+    </div>
+  );
+};
+
+function Book  (){
+  return (
+    <div>
+      <h1>Book name : Cracking The Coding Interview</h1>
+      <h2>Author : Gayle Laakmann McDowell</h2>
+    </div>
+  );
+};
