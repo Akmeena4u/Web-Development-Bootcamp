@@ -17,6 +17,14 @@ React Environment setup
           b. npm run build --This script creates a production build of your app , it minimies our code and all outputs saved here , we can use it in deployment/production phase
        6. deployment- now we can deploy our project on hosting sites like GitHub Pages, Netlify, Vercel, or traditional web hosts.
 
+
+
+Extra tools:-
+        react dev tools chrome extension:- It allows you to inspect the React component hierarchies in the Chrome Developer Tools.You will get two new tabs in your Chrome 
+                                           DevTools: "⚛️ Components" and "⚛️ Profiler".
+       Thunder client :-  It lets us test APIs within the editor.
+        auto rename tag :-
+
         
          
    method-2
