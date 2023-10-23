@@ -16,3 +16,4 @@ Advantages and disadvantages  of Single-Page Applications:
 3. Speed: SPAs can provide a faster and more seamless user experience during navigation, while MPAs may have slower page transitions due to full reloads.
 4. Complexity: SPAs often involve more complex client-side development, while MPAs might have simpler server-side development.
 5.SEO Benefits:MPAs are often considered more SEO-friendly because search engines can easily crawl and index individual HTML pages. Content is readily available for indexing.
+
