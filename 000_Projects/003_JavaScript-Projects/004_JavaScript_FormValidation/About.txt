@@ -1,0 +1,69 @@
+objective:- primary goal of  Form validation is to  ensures that user inputs conform to specified criteria and prevent invalid or malicious data from being submitted to a server. 
+            By using HTML, JavaScript, and CSS, this project will create a seamless and responsive validation process that enhances the overall user experience and data integrity. 
+
+
+steps:-
+    HTML:-
+          1.created a  container class for whole bg and div -box to form and inside that  three sematic tags header (form heading) , main(form),footer(login button) 
+          2.header- in header i given a form heading-SignUP with signup-header class 
+          3.Main- in main i have created a form with signup-body class
+                  a. created a name Full name field with label and a placeholder type your name - here i want when i click on label my focous shoud go in box so for that
+                     i have given same name to both label's for and inpute type text's id
+                  b.same i have created a form field -email and form field -password  and wrap all three fields name,email,password into separete paragraph tags to future css use
+                  c.in fotter i have created a "create account" button  with type submit and value Create Account 
+          4.footer -in footer i have created a "already have an account? Login" button with a class signup-footer
+          5. form validation using js:-
+             a. to validate form using js we have to add some html and control that html by js 
+             b. make span tags with proper id's for all input fields with customize errors
+          6. NOTE:- now we also wants that if we write correct name it show ✅ and when error occured it shows ❎ so for that we will use font awesome kit
+                         (go to font awesome kit -> copy script url and paste into body(<script src="https://kit.fontawesome.com/a17aeb6ed0.js" crossorigin="anonymous"></script>) ->
+                        now serach your desired icon and paste respective code (<i class="fa-solid fa-xmark"></i>) in respective position in html CODE)
+
+   CSS:- 
+         1. first of all i will give default margin ,padding 0 and broder sizing , fonts
+         2. container - i will give a 100% width and 100vh height and a bg image with back-ground size: cover ----        source https://app.haikei.app/
+         3. box- to design form box i will give width and bring it into center using transform:translate and also given padding 
+         4- signup-header- design signupheader  by giving font size ,padding, text-align center
+         5- signup-body- design signup body elements
+                         a. p tag- design paragraph tag with a small margin
+                         b. label- design label of form fields with a font size and weight
+                         c.  inputfield- now design input boxes of name,email,password by giving 100% width to bring labels and boxes on seprate lines , also given padding , radius etc
+                         d. createAccount- to design create account button with giving a text color,bg color and cursor pointer also added a hover to change color on hovering on button
+         6-signup-footer - i have design it by giving a align center , font weight and margin to maintain spacing and when we hover on hyperlink "login" it should show underline 
+                           so for that i have added text-decoration: underline
+         7.icon design- make it absolute wrt to signup body , position it using top and right spaces and change colors
+
+NOTE:-
+HTML Form validation--we can validate our form by html itself by giving field name like text, email,password,submit etc and aking them as required field.
+                       we can also pass pattern , min ,max lengths to make input fields like password more customize and strong 
+                      but here in html form validation we can not show customize errors while giving something unexpected inputs so here javascript helps us for genrating customized erros
+
+
+  JS:-
+      1.Now we wants that before submitting the form it should be validated so for that i will access submitbutton in js file and added a "click" eventlistener
+        first of all while clicking on submit button first our listner will prevent from submiting to wait for validation so lets validate
+        a. validatename- createad a function ValidateName() to validate name - this function first access name fields with id and checks if 
+                         if(name.length==0) then we will show error "name is required" inside nameError.innerhtml
+                         if(!name.match(pattern))  then we will show "write your full name"  ...
+                         After checking both conditions we will make our innerhtml empty
+        b. validateemail - we will just copy paste namevalidate code and just replace name with email and also change other req code
+        c. validatepassoword-  same as above 
+         d. finally in our eventlistener action we willl check if all validatename() && validateemail() && validatepassword() are true then show "form is submitted successfully"
+
+
+challenges :- 
+            1.Making a appealing layout and design was not a walk on the cake 
+            2. client side validation- defining criteria for multiple type of input fields was liitle bit difficult beacuse diffing patterns takes research
+            3. customized errors- showing customized and informative error message was little bit difficult for me because for each input fields i need to create validation function and check multiple conditions
+            4. preventing submissions- preventing submission before validation was also needs thinking 
+            5. Adding icons ❎✅- adding these icons and putting then relative to boxes and showing them according right or wrong input fields takes more time and research
+          
+Enhancement:-
+            1. add a more validateConfirmpassword() field
+            2. Reset form- after submitting a form all fields should became empty (make innerhtml empty)
+            3. showing password strength meter - poor, good , very good etc
+            4. captcha integration- we can integrate captcha to prevent from automatic submission
+            5. real time feedback- we can give immediate feedback/error rather than waiting until the form is submitted.
+            6. providing accessibility to users with disabilities 
+  
+
