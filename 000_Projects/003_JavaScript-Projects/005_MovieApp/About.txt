@@ -85,13 +85,28 @@ steps:-
                                                   8.movie-list-item-button  --p10 , bgcolr:green , colr:whitem , radius10 ,outline:none ,cursor:pointer ,absolute ,b20,l50  ,opacity :0 ,transition:all 1s ease-in-out 
                                                   9.Arrow -- font-size120 ,absolute ,t90,bgclr,right:0 ,clr:gray,cursor:pointer ,opacity 
                          c. design ofother sections will be same as above 
+                         d. add media query to make app responsive like when screen size is more than 940 diapper menu bar
 
 
 
 
 JS:--
       1. Now here i will change dyanmic things on my page to make page intractive like adding functionality to arrow ,toggle 
-      2.Arrow - 
+      2.Arrow - add eventlistener "click" on arrrow , movie-list should move across x-axis so use movielist[i].style.tranform=translateX(100px) , here overflowing so make movie-list-wrapper make oveflow:hidden
+      3.using computedStyleMap capture the initial style on ith movie and using get get its x value and subtract 300 px so that it can move towards left by 300px
+      4.but we wants that it should not indefinite move , there should be a limit and after that it should starts from starting so for that first i have calculate  total numbr of images in movielist and by each click i will increse clickcounter  , if itemnumber -(4+clickcounter)>0 then subtract by 300px and move left otherwise trunback it in initial style and set clickcounter=0
+      5.
+
+
+
+      1. now lets design toggle 
+      2. access toggle ball using queryselctor(.toggle-ball) 
+      3. select all elementson that we wants to apply mode serivce
+      4. add click eventlistener on ball such that on clicking all items.classlist.toggle("active")
+      5. after clicking  make ball.classlist.toggle("active") so that it can look like whiter
+      6. we can aslo add some transition  on toggle-ball transition 1s ease  all
+      7.but we know this design is not responsive so to fix that i will add media query
+      8. after making responsive our crousel not showing all limit items use window object 
                                                   
                         
       
