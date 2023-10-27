@@ -1,0 +1,7 @@
+
+
+Steps:-
+   1.we know by using pure react we can not make a speech recognition App here we will take help from a react node packet manager named as "react-speech-recognition"(https://www.npmjs.com/package/react-speech-recognition)
+   2.useSpeechRecognition  -- is a React hook that gives a component access to a transcript of speech picked up from the user's microphone.
+   3.SpeechRecognition  -- manages the global state of the Web Speech API, exposing functions to turn the microphone on and off.
+   4.react-use-clipboard-  
