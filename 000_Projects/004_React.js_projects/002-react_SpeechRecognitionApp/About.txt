@@ -1,4 +1,6 @@
-
+Objective:
+My Speech Recongnition React application that utilizes the react-speech-recognition and react-use-clipboard libraries to create a Speech to Text Converter. 
+The primary goal is to convert spoken words from the microphone into text and provide options for copying the transcribed text to the clipboard.
 
 Steps:-
    1.we know by using pure react we can not make a speech recognition App here we will take help from a react node packet manager named as "react-speech-recognition"(https://www.npmjs.com/package/react-speech-recognition)
