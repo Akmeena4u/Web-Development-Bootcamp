@@ -1,0 +1,37 @@
+
+React Router is a popular library for routing and navigation in React applications. It allows you to create single-page applications with multiple views and
+handle navigation between those views.
+
+Features of react-routing:-
+1.react-router is a fully featured client and server-side routing library for react
+2. helps create and navigate between different urls that make up our website
+3. provides different URL's for each component in the app and makes the UI easily sharable between different users
+
+Topics to learn:-
+1. configuring routes
+2. Navigating on button click
+3. Navigating programmatically
+4. Dynamic routes
+5. Nested routes
+6. Route parameters
+7. Lazy loading
+8. Authentication
+
+
+installtion steup:-
+1. Create a New React Application (if needed):
+      npx create-react-app my-react-router-app
+      cd my-react-router-app
+2. Install React Router:
+      npm install react-router-dom
+             or
+      yarn add react-router-dom
+
+
+
+
+
+
+
+
+
