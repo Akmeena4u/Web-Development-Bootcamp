@@ -86,7 +86,7 @@ function App() {
                //index-route- allowed you to define a default child route for a parent route
                //  <Route index element={<FeaturedProducts />} />
             
-              <Route path='featured' element={<FeaturedProducts />} />
+              <Route path='featured' element={<FeaturedProducts />} />   //in nested we no need to add/ for routing
               <Route path='new' element={<NewProducts />} />
           </Route>
       </Routes>
