@@ -54,3 +54,31 @@ greetWithDefault("David", 28); // Output: Hello, David! You are 28 years old.
 }
 
 gatherInfo("Alice", "Age: 25", "Location: New York", "Occupation: Developer");
+
+
+
+/*--------------------------------------------------------Named parameters---------------------------------------------------------------------------------------
+Named parameters allow a function to be called using the parameter names with their values rather than just their values in a fixed order.
+making your function calls more self-documenting and less dependent on the order of the parameters 
+
+Defining a Function with Named Parameters:
+To define a function that accepts named parameters, we simply specify the parameter names and their types in the function's signature. 
+we don't need to assign default values for the parameters.
+*/
+
+function greet(options: { firstName: string, lastName: string, age: number }): string {
+  return `Hello, ${options.firstName} ${options.lastName}! You are ${options.age} years old.`;
+}
+
+//the greet function takes an object with named properties firstName, lastName, and age.
+
+const result = greet({
+  firstName: "Alice",
+  lastName: "Johnson",
+  age: 30
+});
+
+console.log(result); // Output: Hello, Alice Johnson! You are 30 years old.
+
+
+
