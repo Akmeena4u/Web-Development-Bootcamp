@@ -1,0 +1,45 @@
+Objective:--
+The social media app you're developing with React is a platform that allows users to connect with others, share content, and interact with posts and users within 
+a virtual community. Users can create profiles, post updates, comment on and like posts, and follow other users.
+
+--------------------------------------------------------------------key features:----------------------------------------------------------------------------
+
+1.User Authentication: - User registration and login with secure authentication methods.
+2.Home Feed: 1. Display a feed of posts from users the current user follows.
+             2. Support for various post types, including text, images, videos, links, and more.
+3.Posting and Sharing: Create and publish posts with text, multimedia content, and links.
+4.Interactions:1. Like and comment on posts.
+                2. Share, bookmark, or save posts
+5.Mobile Responsiveness: Ensure that the app is mobile-friendly, with responsive design for various screen sizes.
+6. CRUD :- users can create , edit, delete their posts
+7. infinite scroll:- there will be infinite scroll of related posts on home feed
+8. Top creators will be shown on right sidebar and left sidebar will have save , search , bookmark 
+
+
+---------------------------------------------------------------------Tech-stack :---------------------------------------------------------------------------------
+
+
+1.React Cotext API
+2.React Routers
+3. React conditional rendering
+4. Tailwind css
+5.Typescript
+6.Appwrite- Appwrite used for authentication , storage , databases and there relations 
+6.React query & Tanstack - used for data fetching from db , these provides following facility - Auto caching , refetching , parallel query ,first class mutation ,state management
+
+
+----------------------------------------------------------------Steps to build-----------------------------------------------------------------------------------
+
+                                ----------------------------------Auth page ------------------------------------
+
+
+1.Auth page is the first part of project where user authentification will happpen , here user will see signin signup options with a submit button and a staning layout with a side image gallary
+2. in _auth page we have a authlayout.tsx inside that we have to form components signinform.tsx & signupform.tsx as nested routes 
+3. signupform:- 1. here we will use shadcn/ui styling library to design our sign up form  setup libray -> install all dependencies  -> use form from shadcn/ui
+                2. define shape of form using zod schema and import fromschema from zad  -> build form
+                3. lib->validation -> index.tsx -which is used for data validation and schema definition of signupform ,signin form , profile validation.
+                4. in signupfrom.tsx make responsive  form with help of globals.css and outer laout 
+                5. make fake field to add loader laading...
+                6. in components make  shared folder with  a global loader.tsx --
+                7. add if u already have account -login/signin (get it from react router dom  link and it will points/sign-in)
+                8. we will add a eventlistener click , that onclick new user will be creeated after few seconds (await )
