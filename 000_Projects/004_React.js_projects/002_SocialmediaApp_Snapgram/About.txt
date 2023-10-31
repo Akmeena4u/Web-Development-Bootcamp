@@ -43,3 +43,62 @@ a virtual community. Users can create profiles, post updates, comment on and lik
                 6. in components make  shared folder with  a global loader.tsx --
                 7. add if u already have account -login/signin (get it from react router dom  link and it will points/sign-in)
                 8. we will add a eventlistener click , that onclick new user will be creeated after few seconds (await )
+
+
+                       --------------------------------Auth functionality -appwrite----------------------------------
+
+1.sign-in in appwrite and make project JSM_Snapgram
+2.lib -> appwrite ->config.ts  -> import all appwrite functionality and run- npm install appwrite 
+3. to considering privacy we will share all our appwrite keys in .env.local file 
+4.utilize all imported variables in config.ts
+5.api.ts --- this file handle all authentication tasks of a new users and existing users and go to signupform.ts and call createAccount() function to make new user 
+6. here we are all most created new user and we can see entered user in our appwrite dashbord
+7. now its not enough we need to create databases for posts and other things and we needs to map them with user and all so for that we need to establish storage and database 
+
+
+
+                 -----------------------------------Storage and databases-------------------------------------------------
+
+1.create bucket for media for upload images and add it in .env.local
+2. create databases with name snapgram Aand add it in .env.local
+3. now we needs to define how db should look liike 
+4.posts collection = create collections inside db snapgram  -posts ->setting -> permissions -> any -> check all -> update 
+5. users collection -  same as above 
+6. saves collection - same as above 
+7. now start making relations among all collections 
+8.posts -attribute ->create attrubute -> create relationship ->two way -> choose related collection -users -> attribute key- creator -> related collectiions-posts ->many to 
+         one (mean one creator can make multiple posts )  -> on deleting set nULL
+         2. create relationship -> related relationship-users ->attribute key -likes  -> related colllection-liked ->many to many -> on deletion -set null
+         3.create attribute -> string -> caption -> size-2200 ->create
+         4. create attribute -> string -> tags -> Array -> create 
+         5. create attribute -> url -> imageUrl ->required -> create
+         6. imageId ->2200 ->required (to delete post)
+         7.string ->location->2200
+         8. indexs -> caption ->fulltext -> caption ->DESC (this allows us to automatically search collections based on caption)
+
+9. users - lets create attributs for users - it already have posts and liked
+         1.name -- string-> name -> 2200 -> create 
+         2. username -- string -> username -> 2200 ->create 
+         3. accountId -- string -> accountId -> 2200 ->required -> create
+         4. email -- email -> email -> required ->create 
+         5. bio ->  string -> bio ->2200 -> create
+         6. imageId -> string ->imageId -> 2200 ->create (for deleting profile image )
+         7. imageUrl -> url -> imageUrl -> required -> create 
+10.saves -- lets crate attributes for Saves 
+         1. relationship -> 2 way -> related collection-users -> att key -user --> att key related colletion - save --> many to one -> set null
+         2. relationship -> 2 way  -> posts -> post -> save -> many to one -> set null
+11. now we are done with db and collectiosn so appwrite does almost everything for us 
+12.lastly go to databases and copy id's and add them in  .env.local
+13. now setup all id in config.ts  and in api.ts add users in db 
+14. add toast from shadcn-ui for pop up
+
+
+
+
+                                               -------------------Tanstack query ----------------------
+
+1. 
+
+       
+           
+
