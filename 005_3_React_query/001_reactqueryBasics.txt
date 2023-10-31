@@ -1,0 +1,68 @@
+React Query is a popular library for managing server state and fetching data in React applications. It provides a powerful and flexible set of tools to manage data,
+handle caching, and manage API calls.
+
+client v/s server state
+1.Client state and server state refer to where and how data is stored and managed within a software application.
+2.Client State: Client state refers to the data and information that is stored and managed on the client-side of an application, typically within the user's device,
+  such as a web browser or mobile device.
+3.Server State: - Server state refers to the data and information that is stored and managed on the server-side of an application, typically within a database or application server.
+
+
+
+
+--------------------------------------------------------------react query benifits -----------------------------------------------------------------------------
+
+React Query is a powerful library that offers several benefits when it comes to managing server state, fetching data, and handling asynchronous operations in React 
+applications. Here are some of the key benefits of using React Query:
+
+1. Simplified Data Fetching: React Query abstracts away many of the complexities of data fetching, making it easy to retrieve and manage data from various sources, such as APIs, databases, and GraphQL.
+
+2. Caching and Automatic Data Management:React Query automatically caches data, eliminating the need to write custom caching logic.
+It provides smart cache management, including data invalidation and background data synchronization, ensuring data consistency.
+
+3. Optimistic Updates:React Query allows you to perform optimistic updates, updating the UI immediately in response to user actions while concurrently making the actual API request.
+
+4.Mutation Handling:It simplifies the management of data mutations (e.g., create, update, delete) by providing hooks for executing mutations and handling responses.
+
+5. Real-time Updates: Integrates seamlessly with real-time data sources and subscriptions to provide real-time updates in the UI.
+
+6.Error Handling and Retries:React Query offers robust error handling, with options to specify error boundaries and automatically retry failed requests.
+
+7. Query Invalidation: It automatically invalidates cached data in response to mutations or other user actions, ensuring data accuracy.
+
+8.Pagination and Infinite Loading: Provides built-in support for paginated data and infinite scrolling, simplifying the implementation of these features.
+
+9. Devtools and Monitoring:Includes a set of devtools for monitoring and debugging queries and mutations during development.
+
+10.Parallel Queries:Allows multiple queries to run in parallel, improving data fetching efficiency.
+
+11. Custom Hooks and Use Cases:React Query is highly customizable, enabling the creation of custom hooks and use cases tailored to your application's specific needs.
+
+12. Code Consistency and Reusability: Encourages consistency in data-fetching patterns across your application, making it easier to maintain and scale.
+
+13. Simplified Testing: React Query's API makes it easier to test data fetching and data manipulation logic in your application.
+
+14. Integration with Authentication: Easily integrate authentication mechanisms and authorization logic into data fetching operations.
+
+15. Performance Optimization: Improves application performance by reducing unnecessary data requests and ensuring minimal data re-fetching.
+
+
+
+
+----------------------------------------------------------project setup :-------------------------------------------------------------------------
+
+1. create a new react project using a CRA
+2. setup an API endpoint that server mock data for use in our application
+   npm install json-server
+   db.json - addthree super hero data
+   pakage.json -  scripts add ---> "serve-json"="json-server  --watch db.json --port 4000"  
+   npm start
+3. setup react router and few routes in application
+    npm install react-router-dom --save
+    src/componnets - 
+    Home.page.js -- for homepage
+    Superhero.page.js - to fetch data using traditional methods like use effetc and usestate
+    RQsuuperhero.page.js -- to fetch data using react query
+    create 3 routes and navbar  links in App.jsx 
+    npm start
+4. fetch data using a useeffect and usestate 
