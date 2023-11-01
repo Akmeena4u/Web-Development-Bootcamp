@@ -38,3 +38,5 @@ useQuery('yourQueryKey', fetchData, {
 //In this example, the staleTime is set to 60 seconds. This means that if the data in the cache is 60 seconds old or older, it's considered stale, and React Query will refetch it on the next usage.
 
 //Automatic Refetch: When a query becomes stale, React Query automatically triggers a refetch when the query is used again. This ensures that your data remains up-to-date without you needing to manually manage data refreshing.
+
+//default chaching time is 5  min and default staleTime is 0
