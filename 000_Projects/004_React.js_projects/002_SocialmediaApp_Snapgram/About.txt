@@ -97,7 +97,12 @@ a virtual community. Users can create profiles, post updates, comment on and lik
 
                                                -------------------Tanstack query ----------------------
 
-1. 
+1. install react query and import usequery,usemutation,usequeryclient ,useinfinitequery to simplify data fetching and mutation while gaining all the benifits like caching,infinte scroll etc
+2.queriesAndmutation.ts -- a. create useCreateuseraccountMutation and use in signup form as a hook , here we will use this mutation for datafetching and as a intermidiadte 
+                          between forentend and appwrite
+                          b. create another useSigninAccount mutation and useṁ, nbqe4r 56789p-jiygfdx this in signinup form and also make signinaccount in appwrite
+3.Context->Authcontxt.tsx--now we needs to  store our session in react context , set initial values and varify authenticationjjj
+                          
 
        
            
