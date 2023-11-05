@@ -1,0 +1,63 @@
+Node.js is an open-source, cross-platform runtime environment that allows developers to run JavaScript code on the server-side. It is built on the V8 JavaScript engine from Google and provides an event-driven, non-blocking I/O (input/output) model,
+
+
+Here are some key features and use cases of Node.js:
+
+1.Server-Side Development: Node.js is commonly used for building server-side applications, such as web servers, API servers, and real-time applications like chat applications and online games.
+
+2.JavaScript: Node.js allows developers to use JavaScript both on the client and server sides, which simplifies the development process for those who are already familiar with JavaScript.
+
+3.Event-Driven and Non-Blocking: Node.js uses an event-driven, non-blocking I/O model, which means it can efficiently handle many concurrent connections without consuming too much memory or CPU resources.
+
+4.NPM (Node Package Manager): Node.js comes with NPM, a powerful package manager that allows developers to easily install and manage third-party libraries and modules, making it simple to reuse code and extend the functionality of your applications
+
+---------------------------------------------------------------------------
+
+
+What is a Module in Node.js?
+Consider modules to be the same as JavaScript libraries.
+A set of functions you want to include in your application.
+
+1---------------------Built-In (Core) Modules:-------------------
+Node.js provides a set of core modules that you can use without installing any additional packages.
+fs (File System): Provides file I/O operations like reading and writing files.
+http and https: Allows you to create HTTP and HTTPS servers or make HTTP/HTTPS requests.
+path: Helps with path manipulation and file system operations.
+util: Provides utility functions.
+os: Gives information about the operating system.
+events: Enables you to work with events and event emitters.
+stream: Provides a framework for working with streams of data.
+
+To use a core module, you typically require it at the top of your JavaScript file using the require function
+const fs = require('fs');
+
+
+2---------------------User-Defined Modules:--------------------------------
+
+
+In addition to core modules, Node.js allows you to create your own custom modules. These can be JavaScript files 
+Creating a User-Defined Module:
+Suppose you have a JavaScript file named mymodule.js containing the following code:
+
+// mymodule.js
+exports.myFunction = function() {
+  console.log('This is a custom function in mymodule.js');
+};
+
+//export.module=mymodule
+
+Using a User-Defined Module:
+You can use the module in another JavaScript file like this:
+const myModule = require('./mymodule.js');
+myModule.myFunction();
+
+
+3------------------------Third-Party Modules:--------------------
+Node.js has a rich ecosystem of third-party modules available via the Node Package Manager (NPM)
+npm install express
+
+//use
+const express = require('express');
+const app = express();
+
+
