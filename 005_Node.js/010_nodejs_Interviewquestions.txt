@@ -1,0 +1,91 @@
+0. What is npm and its advantages?
+NPM stands for Node Package Manager. It is an online repository for Node.js packages. We can install these packages in our projects/applications using the command line.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+1. What is Node.js?
+Node.js is an open-source, cross-platform runtime environment for executing JavaScript code on the server-side. It is built on the V8 JavaScript engine,
+ Node.js allows developers to use JavaScript for both client-side and server-side programming
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. What is the difference between Node.js and JavaScript? explain in short
+     Node.js and JavaScript are related but serve different purposes:
+
+JavaScript:
+JavaScript is a programming language used for front-end web development, running in web browsers.
+It is primarily responsible for making web pages interactive and dynamic.
+JavaScript code runs in the browser and is limited to client-side interactions.
+
+Node.js:
+Node.js is a runtime environment for executing JavaScript on the server-side.
+It enables server-side programming, allowing developers to build server applications and network services.
+Node.js uses the V8 JavaScript engine and provides an event-driven, non-blocking I/O model, making it well-suited for building scalable and high-performance server applications.
+In short, JavaScript is used in web browsers for client-side scripting, while Node.js extends JavaScript to the server-side, enabling server application development and server-side scripting.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. What kind of API function is supported by Node.js?
+
+There are two types of API functions supported by Node.js:
+Synchronous: These API functions are used for blocking code.
+Asynchronous: These API functions are used for non-blocking code.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+4. What is the difference between Synchronous and Asynchronous functions?
+Synchronous function: These are the function that block the execution of the program whenever an operation is performed. Hence these are also called blocking operations.
+We use these functions to perform lightweight tasks
+Asynchronous function: These are the operations that do not block the execution of the program and each command is executed after the previous command even if the previous
+command has not computed the result. We use these functions to perform heavy tasks.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. How does Node.js handle concurrency even after being single-threaded?
+Node.js internally uses libuv library for handling all async call. This library creates multiple thread pools to handle async operations.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+6. What are the main disadvantages of Node.js?
+Since Node.js is single-threaded so multi-threaded engines are better and can handle tasks more efficiently. Also, we do not use relational databases with Node.js 
+like MySQL mostly non-relational databases like MongoDB is used.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7. What is the difference between Node.js and AJAX?
+Node.js is a JavaScript runtime environment that runs on the server side whereas AJAX is a client-side programming language that runs on the browser.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8. What is package.json in Node.js?
+package.json is a file that is used to store the metadata of all the contents of the project. It is used to describe the module used, run commands, and other useful information about the project.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+9. What are promises in Node.js?
+Promises in Node.js are a way to handle asynchronous operations, making it easier to write and manage asynchronous code. Promises are an improvement over traditional
+callback functions, offering a more structured and readable approach to working with asynchronous tasks.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+10. How is Node.js better than other frameworks most popularly used?
+Node.js provides simplicity in development because of its non-blocking I/O and even-based model results in short response time and concurrent processing,
+unlike other frameworks where developers have to use thread management. 
+
+It runs on a chrome v8 engine which is written in c++ and is highly performant with constant improvement. 
+Also since we will use Javascript in both the frontend and backend the development will be much faster. 
+And at last, there are ample libraries so that we don’t need to reinvent the wheel.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+11. What is REPL?
+PL in Node.js stands for Read, Eval, Print, and Loop, which further means evaluating code on the go.
+
