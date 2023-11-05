@@ -101,9 +101,76 @@ a virtual community. Users can create profiles, post updates, comment on and lik
 2.queriesAndmutation.ts -- a. create useCreateuseraccountMutation and use in signup form as a hook , here we will use this mutation for datafetching and as a intermidiadte 
                           between forentend and appwrite
                           b. create another useSigninAccount mutation and useṁ, nbqe4r 56789p-jiygfdx this in signinup form and also make signinaccount in appwrite
-3.Context->Authcontxt.tsx--now we needs to  store our session in react context , set initial values and varify authenticationjjj
-                          
+3.Context->Authcontxt.tsx--now we needs to  store our session in react context , set initial values and varify authentication
+so after setting up everything - we created a account -> add that to user context ->navigate to homepage (rootlayout-home)
 
+
+
+
+
+                                          ------------------- Sign-in form------------------------------
+1.copy entire signup form and copy in sign in form and modify that - remove usecreateuser , remove username ,name , change signin validation in zad (index.ts) , change sihnup with signin and modify from details 
+
+
+                                      ----------Home-page------------------------------------------------
+1.src-> rooot-> pages ->rootlayout->Home.tsx
+2.rootlayout.tsx ->shared 
+  1. topbar.tsx--> 0.Mobile onlyyyyyyyyyyyyyyyyyyyyyy
+                   1.add logo using react router 
+                   2. add logout logo using shadcn and onclick={signout} using mutation -mobile
+                   3. add profile using usecontext-mobile
+
+ 
+  2. Leftsidebar.tsx-->
+     1. make  a navbar=leftsidebar -> use flex col
+     2. add logo for sidbar same as topbar using react LInk
+    3. add profile logo with username and logout functionlity as topbar becoz it is for desktop
+    4-  make a unorderd list and make all sidebar links - we can define all sidebar links in another ts file like constants.ts and then use them here using <navlink> to 
+        make less clutter  
+    5. constants - Home ,explore ,peoples ,saved  , createpost
+    6 . added a uselocation to show active links - like colr change or text colr change
+    7. add sihnout button from topbar.tsx 
+    8. we will add routing of these all links in next  and we will add these all routes in our app.tsx 's private routing 
+    9. create all these pages in pages -
+       0. index.ts - export all below pages
+       1. alluser.tsx
+       2.createpost.tsx
+       3.editpost.tsx
+       4. savedpost.tsx
+       5. postdetails.tsx
+       6. home.tsx
+       7 likedpost.tsx
+                          
+ 3. Bottombar.tsx-->0. Mobile onlyyyyyyyyyyyyyyyyyyyy
+                   1.Home ,explore , saved , create  so that navigation coud be easy 
+                   2. copy mostly from sidebar and modify all all sidebar with bottombar things 
+
+
+
+                                -------------------create post--------------------------------------------------
+
+1. createpost.tsx-- add a addpost logo
+                  2. add a text create post below logo
+                  3. now we needs to make a form like structure consisting - image , caption , location 
+                  4. components -> forms- > postform.tsx and we will render this in createpost , we make it seprate to reuse 
+                  5.  1.postform.tsx-->  shadcn -> f orm  and modify it with formfields-  caption with placeholder textarea  , file -add photos use fileuploader  , 
+                       location =add location  type -text  , tags -art, expression , learn , react ,js    ,,   add button  cancel , submit and justify them in end
+                      2.  fileuploader-- go to react-dropzone import usages -callback to drag and drop files , make a usestate
+                         a good interface in add photos -make -box , add image , drag photos or selct from computer , supported files name,
+                         useDropzone (getrootsprop,getinputprops) - accept :-.png , .jpeg . jpg  ,.svg
+                       3. ondrop()-- setfile(acceptfile) , fieldchange (acceptedfile) , setfilrurl
+                  6. in index.ts & postform.tsx define caption and its attributes and also define for other fields 
+                  7. now implement what happen when we will click on submit , here we needs our appwrite 
+                     a. here in postform.tsx we will import usecreatepost hook and utilse it in onsumit
+                     b. if we are pressing without any post it will toast a plz again try 
+                    c. after  successfully posting navigate to home 
+                    d. set permission sin appwrite- storage - media- permission
+                  8. now implement homepage and fetch this post here - in api.ts implement createpost- if uploadfile- return uploaded file else error
+                  9. deletefile-if something went wrong 
+                  10. save the post in db 
+                  11. get all real time created post we used usemutation  and make queryclient as invalidatequeries so that it do not get posts from cache 
+ 
+                
        
            
 
