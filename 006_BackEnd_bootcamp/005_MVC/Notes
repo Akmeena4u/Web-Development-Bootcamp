@@ -1,0 +1,32 @@
+MVC (Model-View-Controller) Pattern
+MVC is a design pattern that separates an application into three interconnected components, each having a specific role:
+
+Model:
+Represents the data and business logic of the application.
+Manages the data, logic, and rules of the application.
+Interacts with the database if needed.
+
+
+View:
+Represents the user interface or presentation layer.
+Displays information to the user and gathers input.
+Reacts to changes in the Model.
+
+Controller:
+Acts as an intermediary between the Model and View.
+Handles user input and updates the Model and View accordingly.
+Contains the business logic and controls the flow of data.
+
+
+In the context of a backend :
+Model: The backend that contains all the data logic ,  Involves database schemas, business logic, and rules.
+View: The frontend or graphical user interface (GUI)
+Controller: The brains of the application that controls how data is displayed
+They help modularize the application and make the code more maintainable.
+
+Setting Up the Directory Structure:
+Arrange the project directory in the following way:
+Controllers: Files containing functions attached to each route path.
+Routes: Files containing routers.
+Models: To be discussed in later chapters.
+Views: To be discussed in later chapters
