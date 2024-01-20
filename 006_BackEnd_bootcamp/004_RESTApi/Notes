@@ -1,0 +1,46 @@
+
+REST API using Express JS
+
+
+HTTP Methods
+HTTP methods define the type of request being made to the server. There are five primary HTTP methods:
+
+GET: Retrieves a resource from the server. It performs a READ operation, and it is the default request method.
+POST: Creates a new resource on the server. It performs a CREATE operation.
+PUT and PATCH: Used to update a resource on the server. PUT generally replaces all content, while PATCH updates specific fields.
+DELETE: Removes a resource from the server. It performs a DELETE operation.
+REST API Structure
+REST APIs are based on a combination of HTTP methods and resource paths. For example, considering a resource named "task," here are common REST APIs for tasks:
+
+READ APIs:
+GET /tasks: Read all tasks.
+GET /task/:id: Read a specific task identified by a unique id.
+
+CREATE APIs:
+POST /tasks: Create a new task object (data in the request body).
+
+UPDATE APIs:
+PUT /task/:id: Update a specific task identified by a unique id. Replaces all content with data from the request body.
+PATCH /task/:id: Update a specific task identified by a unique id. Only updates the fields specified in the request body.
+
+DELETE APIs:
+DELETE /task/:id: Delete a specific task identified by a unique id.
+
+
+
+REST API (Representational State Transfer) is a standard for designing APIs. It revolves around accessing resources, such as a "Product," using a combination of HTTP methods and URL styles.
+
+CRUD Operations in REST API
+REST APIs commonly involve CRUD operations:
+
+CREATE: POST /products - Create a new resource (e.g., product).
+
+READ:
+GET /products - Read many resources (e.g., products).
+GET /products/:id - Read one specific resource (e.g., product).
+
+UPDATE:
+PUT /products/:id - Update by replacing all content of a specific resource (e.g., product).
+PATCH /products/:id - Update by only setting content from the request body, not replacing other parts.
+
+DELETE: DELETE /products/:id - Delete a specific resource (e.g., product).
