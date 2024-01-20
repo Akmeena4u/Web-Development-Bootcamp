@@ -26,9 +26,12 @@ PATCH /task/:id: Update a specific task identified by a unique id. Only updates 
 DELETE APIs:
 DELETE /task/:id: Delete a specific task identified by a unique id.
 
-
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A REST API (also known as RESTful API) is an application programming interface (API or web API) that conforms to the constraints of REST architectural style and allows for interaction with RESTful web services.
 REST API (Representational State Transfer) is a standard for designing APIs. It revolves around accessing resources, such as a "Product," using a combination of HTTP methods and URL styles.
+
+Rest depends on client-server independent architecture ,here we send data from server in JSON format and always works with HTTP methods 
+
 
 CRUD Operations in REST API
 REST APIs commonly involve CRUD operations:
