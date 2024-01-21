@@ -32,3 +32,7 @@ Here are some key features and concepts related to MongoDB:
 To interact with MongoDB, you can use the MongoDB shell, which is a command-line interface, or use official drivers for various programming languages like Python, Java, Node.js, and others.
 
 It's worth noting that MongoDB is continuously evolving, and new features and improvements are regularly introduced. Make sure to check the official MongoDB documentation for the latest information and best practices.
+
+
+mongodb community server  v/s mongodb atlas
+mongo shell or compass
