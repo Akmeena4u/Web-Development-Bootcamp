@@ -1,0 +1,297 @@
+Chapter 7 - Mongoose and REST APIs
+
+
+-------------------------------------------------------------## Why Mongoose-->-------------------------------------------------------------------------------------
+
+Mongoose is an object modeling tool for MongoDB, a popular NoSQL database. It provides a schema-based solution for modeling data, validation, and interaction with MongoDB. Here are some common uses of Mongoose:
+
+1. **Schema Definition:**
+   - Mongoose allows you to define a schema for your data models. Schemas provide a structure for the documents in your MongoDB collection, specifying the fields, types, and constraints.
+
+   const mongoose = require('mongoose');
+   const Schema = mongoose.Schema;
+
+   const userSchema = new Schema({
+     name: String,
+     email: { type: String, unique: true },
+     age: Number
+   });
+
+   const User = mongoose.model('User', userSchema);
+   
+
+2. **Model Creation:**
+   - Mongoose lets you create models based on the defined schemas. Models are constructors that allow you to interact with MongoDB collections.
+     
+const newUser = new User({ name: 'John Doe', email: 'john@example.com', age: 25 });
+
+   newUser.save((err, user) => {
+     if (err) return console.error(err);
+     console.log('User saved:', user);
+   });
+   
+
+3. **Data Validation:**
+   - Mongoose provides built-in validation for data. You can specify validation rules for each field in your schema.
+   const userSchema = new Schema({
+     name: { type: String, required: true },
+     email: { type: String, unique: true, required: true, validate: /\S+@\S+\.\S+/ },
+     age: { type: Number, min: 0 }
+   });
+   
+
+4. **Querying and CRUD Operations:**
+   - Mongoose simplifies database interactions by providing a high-level API for querying, creating, updating, and deleting documents.
+
+   // Find users with age greater than 21
+   User.find({ age: { $gt: 21 } }, (err, users) => {
+     if (err) return console.error(err);
+     console.log('Users with age > 21:', users);
+   });
+   
+
+5. **Middleware:**
+   - Mongoose supports middleware functions that can be executed before or after certain operations (e.g., save, validate, remove). This allows you to perform custom actions during the 
+    lifecycle of a document.
+
+  
+   userSchema.pre('save', function (next) {
+     // Do something before saving
+     console.log('About to save:', this);
+     next();
+   });
+   
+
+6. **Population:**
+   - Mongoose supports population, allowing you to reference other documents in your models and automatically retrieve the referenced data.
+
+   const postSchema = new Schema({
+     title: String,
+     content: String,
+     author: { type: Schema.Types.ObjectId, ref: 'User' }
+   });
+  
+
+### Alternative Ways:
+
+1. **MongoDB Native Driver:**
+   - You can interact with MongoDB using the official MongoDB Node.js driver. This involves working with raw MongoDB queries without the additional layer of abstraction provided by Mongoose.
+
+const { MongoClient } = require('mongodb');
+   const uri = 'mongodb://localhost:27017';
+   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+   // Example of inserting a document
+   client.connect(async err => {
+     const collection = client.db('test').collection('users');
+     await collection.insertOne({ name: 'John Doe', age: 25 });
+     client.close();
+   });
+   
+
+2. **Odm/Orm Libraries:**
+   - Other Object Document Mapping (ODM) or Object-Relational Mapping (ORM) libraries can be used for different databases. Examples include Sequelize for SQL databases or Mongoose-like 
+     libraries for other NoSQL databases.
+
+3. **Raw HTTP Requests:**
+   - In some cases, you may choose to interact with MongoDB using raw HTTP requests. MongoDB provides a RESTful API, allowing you to perform basic CRUD operations over HTTP.
+   // Example using the fetch API
+   const url = 'http://localhost:27017/mydatabase/mycollection';
+   const options = {
+     method: 'POST',
+     headers: { 'Content-Type': 'application/json' },
+     body: JSON.stringify({ name: 'John Doe', age: 25 })
+   };
+
+   fetch(url, options)
+     .then(response => response.json())
+     .then(data => console.log('Data:', data))
+     .catch(error => console.error('Error:', error));
+   
+
+When choosing between Mongoose and alternative methods, consider factors like ease of use, development speed, and the specific requirements of your project. Mongoose is particularly well-suited for projects using MongoDB where a schema-based approach and data validation are important.
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------#installation----------------------------------------------------------------------------------
+
+You can install mongoose using npm :
+npm install mongoose
+After installing , you can import mongoose to your project :
+
+const mongoose = require("mongoose");
+
+------------------------------------------------------------------------##Connection to Database-----------------------------------------------------------------------
+
+To connect mongoose to your database test, you have to use the following commands :
+
+var mongoose = require('mongoose');
+await mongoose.connect('mongodb://127.0.0.1:27017/test');
+Connection can also be stored in a variable to check whether it is connected properly or not. Also to disconnect database later on. You can read more details Here
+
+-------------------------------------------------------------------------------##Schema-------------------------------------------------------------------------------
+Schema is the specification according to which data object is created in Database.
+taskSchema which contains title, status, date fields. So every task object saved in database will have these 3 fields according to Schema given
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const taskSchema = new Schema({
+    title:  String,
+    status: Boolean,
+    date: { type: Date, default: Date.now }    
+  });
+
+#Many types of data are allowed in Mongoose Schema. The common SchemaTypes are:
+
+String
+Number
+Date
+Boolean
+Mixed
+ObjectId
+Array
+
+#Note:-->
+You can put a lot of conditions inside the Schema object :
+
+    age: { type: Number, default:18, min: 18, max: 65, required :true }
+    // default value of Number is 18 and should be between 18-65, and can't be null or empty
+Detailed information on SchemaTypes is Here
+
+------------------------------------------------------------------------------##Model----------------------------------------------------------------------------
+Model are similar to classes, they create a Class from Schema. These classes(i.e Models) can be used to create each new database object.
+
+
+const mongoose = require('mongoose');
+const { Schema } =  mongoose;
+
+const taskSchema = new Schema({
+    title:  String,
+    status: Boolean,
+    date: { type: Date, default: Date.now },    
+  });
+  
+const Task = mongoose.model('Task', taskSchema);  //Task Model to create new database objects for `tasks` Collection
+
+
+
+
+-------------------------------------------------------------------------------------##CRUD in Mongoose--------------------------------------------------------------------
+
+----------------#Create - new objects------------
+
+To Create new obejct in database we can use new keyword and create an object from Model. We can use save() function to save the object in database. Unless, you call save function - the object remains in memory. If your collection not yet created in MongoDB, it will created with name of Model pluralized (e.g Task will make a collection named tasks)
+
+server.post("/task",function(req,res){
+    let task = new Task();
+
+    task.title = "shopping";
+    task.status = true;
+    task.date = new Date();
+
+    task.save();
+})
+
+
+
+--------------## Read objects---------------
+
+To read new obejcts from database, one can use find query or similar queries. find queries also contain some conditions which can restrict what kind of data objects you want to read from database.
+
+server.get("/task/:name",function(req,res){
+    Task.findOne({name:req.params.name},function(err,doc){
+        console.log(doc)  // this will contain db object
+    })
+})
+
+
+server.get("/tasks",function(req,res){
+    Task.find({},function(err,docs){
+        console.log(docs)  // this is an array which contains all task objects
+    })
+})
+
+Notes--> 
+Check Mongo Compass/or Mongo Shell - if all records are returned in response. How you will change this API to make it return only one database record in which title is matched with title sent in request query.
+
+--------------##Update - existing objects-------------
+
+To Update an existing object in database we need to first find an object from database and then update in database. This might be considered as a combination of find and save methods.
+There are generally 2 cases in update :
+
+Updating all values and overwriting the object properties completely.
+Updating only few values by setting their new values.
+First scenario is covered using this query. Here you are overwriting all properties and resulting object will only have name property.
+
+server.put("/task/:name",function(req,res){
+    Task.findOneAndReplace({name:req.params.name},{name:'YouStart'},{new:true},function(err,doc){
+        console.log(doc)  // this will contain new db object
+    })
+})
+Second scenario is covered using this query. Here you are only changing value of name property in existing object without changing other values in Object.
+
+server.put("/task/:name",function(req,res){
+    Task.findOneAndUpdate({name:req.params.name},{name:'YouStart'},,{new:true},function(err,doc){
+        console.log(doc)  // this will contain db object
+    })
+})
+
+
+------------##Delete - existing objects------------------
+
+To Delete existing object from database we need to first find an object from database and then delete. This might be considered as a combination of find and delete methods.
+
+server.delete("/task/:name",function(req,res){
+    Task.findOneAndDelete({name:req.params.name},function(err,doc){
+        console.log(doc)  // this will contain deleted object object
+    })
+})
+
+Notes-> Check using Mongo Compass/or Mongo Shell that the record is deleted or not.
+
+
+
+-----------------------------------------------------------------EXAMPLE-->---------------------------------------------------------------------------------
+
+install mongoose npm install mongoose
+Mongoose connection code
+main().catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1:27017/test');
+  
+  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+}
+Mongoose Schema : Each schema maps to a MongoDB collection and defines the shape of the documents within that collection.
+const  productSchema  =  new  Schema({
+
+title: {type:  String, required:  true, unique:  true} ,
+description:  String,
+price: {type:  Number, min:[0,'wrong price'],required:  true},
+discountPercentage: {type:  Number, min:[0,'wrong min discount'], max:[50,'wrong max discount']},
+rating: {type:  Number, min:[0,'wrong min rating'], max:[5,'wrong max rating']},
+brand: {type:  String,required:  true},
+category: {type:  String, required:  true},
+thumbnail: {type:  String, required:  true},
+images: [ String ]
+
+});
+Mongoose Model : model are built using a combination of Schema and name of Collection.
+const Product  =  mongoose.model('Product', productSchema);
+Mongoose Document - its is instance of a model. so Model is like a class and documents are like its objects. These documents are directly saved in mongoDB.
+  const document = new Product();
+ // document is actually saved in database after save()
+  await document.save();
+Mongoose Schema/Model can act as Model of Model-View-Controller concept.
+
+-----------------------------------------------------------------
