@@ -13,3 +13,6 @@ Put a vercel config file - vercel.json in your project root directory.
 After every change, commit your changes - and push code on github.
 You have to provide permission for github directory to vercel. It will pickup vercel.json and package.json and deploy your code accordingly.
 Check video for more details.
+
+
+Alternative :- Railway.app ,  Heroku
