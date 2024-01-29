@@ -4,6 +4,8 @@ Certainly! I'll add some descriptive text based on the content you provided:
 # jQuery Overview
 
 jQuery is a powerful and lightweight JavaScript library designed with the philosophy of "write less, do more." Its main purpose is to simplify complex tasks and enhance the functionality of JavaScript on web pages. By encapsulating common operations into concise methods, jQuery allows developers to achieve more with minimal code.
+The purpose of jQuery is to make it much easier to use JavaScript on your website.
+jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into methods that you can call with a single line of code.
 
 ## Installation
 
