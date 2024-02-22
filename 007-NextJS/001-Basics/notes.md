@@ -1,6 +1,6 @@
-Certainly! Here's a summarized set of notes based on the provided transcript:
 
----
+
+
 
 **Next.js for Beginners Series - Introduction**
 
