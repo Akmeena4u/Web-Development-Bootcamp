@@ -41,6 +41,7 @@ start mongo shell-  mongod --version
                     mongosh
 
 mongod is a db server that works as bridge beteen node and mongodb
+mongoose is best alternative of mongod server . its a ODM
 ** Enviroment Variable** : To use environment variable we can use a npm package called dotenv which will create new process.env variables.
 
 Install dotenv using npm install dotenv
