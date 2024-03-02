@@ -95,17 +95,4 @@ Certainly! Here are the notes based on the provided video transcript:
 
 ---
 
-**Introduction:**
-
-- **Overview:**
-  - Keeping up with advancements in AI and web development is crucial.
-  - In 2013, Facebook introduced React, revolutionizing web development.
-  - By 2023, React documentation suggests using React-powered frameworks over plain React.
-
-- **Special Resource:**
-  - Free resource announced: "Ultimate Next.js 13 eBook."
-  - Covers Next.js roadmap, essential concepts, new features, building scalable projects, and project ideas.
-  - First 1000 people on the waiting list get it for free.
-
-
 
