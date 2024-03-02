@@ -4,6 +4,12 @@
 
 **Next.js for Beginners Series - Introduction**
 
+**Next.js Overview:**
+
+- ** 0. Adoption by Companies:**
+  - Notable companies like Netflix, TikTok, Twitch, Hulu, Notion, Target, and Nike use Next.js.
+  - Node.js website migrated to Next.js for long-term use.
+
 **1. What is Next.js?**
 - Next.js is a React framework for building web applications.
 - It simplifies the process of building fully-featured, production-ready applications by providing additional features beyond React.
@@ -19,6 +25,7 @@
   - Support for various styling methods (CSS modules, Tailwind CSS, CSS-in-JS).
   - Optimization for images, fonts, and scripts.
   - Well-optimized development and production build system.
+  -  Automatic Code Splitting:**-  automatic code splitting reduces initial load time.  ages are split into smaller chunks, loaded as needed for faster navigation.
 
 **3. Prerequisites**
 - Solid understanding of HTML, CSS, and JavaScript fundamentals.
@@ -83,3 +90,22 @@
 
 **Note:**
 - Detailed explanations of certain files and folders are intentionally omitted as they may not be the focus of the series. You may delve into them based on your interest.
+
+Certainly! Here are the notes based on the provided video transcript:
+
+---
+
+**Introduction:**
+
+- **Overview:**
+  - Keeping up with advancements in AI and web development is crucial.
+  - In 2013, Facebook introduced React, revolutionizing web development.
+  - By 2023, React documentation suggests using React-powered frameworks over plain React.
+
+- **Special Resource:**
+  - Free resource announced: "Ultimate Next.js 13 eBook."
+  - Covers Next.js roadmap, essential concepts, new features, building scalable projects, and project ideas.
+  - First 1000 people on the waiting list get it for free.
+
+
+
