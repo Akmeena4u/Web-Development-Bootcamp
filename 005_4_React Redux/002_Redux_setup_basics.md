@@ -31,19 +31,19 @@
 
 ---
 # Three Principles
-<br>
+
 ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/52501e20-9a19-4923-9694-2e402262e39c)
-<br>
+
 ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/af352ebb-b3f8-4aa2-abe9-f57cf29bbc42)
-<br>
+
 ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/124e7eb4-6d5e-459d-b8f2-238b484e4973)
-<br>
+
 ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/cf0ffebf-d7cb-4f33-8e23-fc815e55be36)
-<br>
+
 ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/10c21ab1-8095-4a25-9844-04148f4a8cdc)
-<br>
+
 ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/979fefc1-e257-4773-9f94-b0c86940d9f6)
-<br>
+
 
 
 ---
