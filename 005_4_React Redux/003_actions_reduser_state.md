@@ -39,7 +39,6 @@
    - Helps maintain a clean and consistent structure for creating actions.
    - ```// Actions.js
      import { BUY_CAKE } from './Constants';
-    // Action creator function
        const buyCake = () => {
        return {
          type: BUY_CAKE,
