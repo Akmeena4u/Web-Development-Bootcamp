@@ -1,6 +1,8 @@
 /*********************************************************------JS DOM----************************************************************************
+The JavaScript Document Object Model (DOM) is a programming interface that represents the structure of a document as a tree of objects. It provides a way for scripts to interact with the structure, style, and content of HTML and XML documents. With the DOM, you can dynamically manipulate and update the content and structure of a web page.
 
-JS Engine converts all HTML code of a website into a js object , that represents the structure and content of web documents
+JS Engine converts all HTML code of a website into a js object, that represents the structure and content of web documents
+The document object represents the entire HTML or XML document.
 
 With the Document object model, JavaScript gets all the power it needs to create dynamic HTML:
 
