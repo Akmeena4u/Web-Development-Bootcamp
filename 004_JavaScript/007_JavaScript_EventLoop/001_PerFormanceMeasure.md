@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # Measuring JavaScript Code Performance
 
 Measuring the performance of JavaScript code is essential for identifying bottlenecks and optimizing your applications. There are several tools and techniques you can use to measure JavaScript code performance, including:
