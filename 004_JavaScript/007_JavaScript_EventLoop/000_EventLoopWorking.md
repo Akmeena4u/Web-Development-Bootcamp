@@ -46,14 +46,12 @@ JavaScript Runtime, Web APIs, Event Loop, and Callback Queue work together:
 This cycle allows JavaScript to efficiently handle both synchronous and asynchronous tasks, providing a non-blocking and responsive user experience.
 
 
-```console.log("Start");
-```setTimeout(function () {
+console.log("Start");
+setTimeout(function () {
     console.log("Inside setTimeout");
 }, 2000);
 
-console.log("End");```
-
-
+console.log("End");
 Certainly! Here's an explanation of the event loop in JavaScript:
 
 JavaScript Event Loop
