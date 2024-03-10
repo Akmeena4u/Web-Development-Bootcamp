@@ -131,3 +131,46 @@ Here's a visualization of layouts in the new app router:
 
 
 ---
+
+
+# Using Route Groups for Selective Layout Application
+
+Route Groups – selectively applying layouts to specific segments while leaving others unchanged.
+
+## Example: Using Route Groups for Selective Layouts
+
+1. **Create a New Folder:**
+   - Inside the `auth` folder, create a new folder named `WithauthLayout`.
+
+2. **Move Folders:**
+   - Move the `login` and `register` folders into the newly created `WithauthLayout` folder.
+
+3. **Create Layout Component:**
+   - Create a `Layout.tsx` file within `WithauthLayout`.
+   - Copy and paste the React component code for the layout:
+     ```tsx
+     // Layout.tsx
+     import React from 'react';
+
+     const Layout: React.FC = ({ children }) => (
+       <div>
+         <h2>Inner Layout</h2>
+         {children}
+       </div>
+     );
+
+     export default Layout;
+     ```
+
+4. **Convert to Route Group:**
+   - Add parentheses to make `WithauthLayout` a Route Group:
+     ```tsx
+     // Rename to (WithauthLayout)
+     ```
+
+5. **Browser Testing:**
+   - In the browser, navigate to `/login` and `/register` to observe the applied layout.
+   - Note that `/forgot-password` remains unaffected by the layout.
+
+By utilizing Route Groups for selective layout application, you can maintain a clean and organized project structure, especially in large projects with multiple layouts and route segments.
+---
