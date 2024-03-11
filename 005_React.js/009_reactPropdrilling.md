@@ -52,4 +52,3 @@ To mitigate prop drilling, you can consider alternative state management solutio
 3. **Custom Hooks:** You can create custom hooks to manage and share state or data across components without prop drilling.
 ```
 
-Feel free to use this Markdown code in your documentation or README files.
