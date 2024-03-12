@@ -36,8 +36,8 @@ The structure of REST APIs is determined by a combination of HTTP methods and re
 
 REST APIs conform to the constraints of the REST architectural style. Key characteristics include:
 
-- **Client-Server Architecture**: REST follows a client-server independent architecture.
-- **Stateless Communication**: Each request from a client to the server contains all the information needed to understand and fulfill the request.
+- **Client-Server Architecture**: REST follows a client-server independent architecture.This separation allows for scalability and flexibility.
+- **Stateless Communication**: Each request from a client to the server contains all the information needed to understand and fulfill the request. The server does not store any information about the client's state between requests.
 - **Data Format**: Data is sent from the server to the client in JSON format.
 - **HTTP Methods**: RESTful APIs primarily work with standard HTTP methods.
 
