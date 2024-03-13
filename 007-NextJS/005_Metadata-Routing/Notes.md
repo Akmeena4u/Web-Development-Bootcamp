@@ -80,6 +80,71 @@ Ensure to handle dynamic metadata appropriately based on your application requir
 - Dynamic metadata function can be defined as an async function for fetching data dynamically.
 - You cannot export both the metadata object and the `generateMetadata` function from the same route segment.
 
-In the next video, we'll dive deeper into configuring just the title field as it is such an important field from a routing perspective. Thank you for watching!
 ```
 
+---
+
+
+# Understanding Title Field in Metadata for Routing with Next.js
+
+In this video, we're going to dive deeper into the title field in metadata, which is a crucial field from a routing perspective. The title field's primary purpose is to define the document title. It can be either a string or an object. Let's understand both types with an example.
+
+## String Value
+
+The most straightforward way to set the title attribute is by using a string value. We can define the title field in `layout.tsx` and `page.tsx` files as follows:
+
+```typescript
+// layout.tsx or page.tsx
+export const metadata = {
+  title: "About Code Evolution"
+};
+```
+
+This will render the `<title>` tag with the same string value in the browser.
+
+## Object Value
+
+For more flexibility, we can define the title field using an object. Import and use the `metadata` type from Next.js for better intelligence:
+
+```typescript
+// layout.tsx or page.tsx
+import { metadata } from 'next';
+
+metadata.title = {
+  default: "Next Shares Tutorial - Code Evolution",
+  template: "%s | Code Evolution"
+};
+```
+
+The object supports three keys: `absolute`, `default`, and `template`.
+
+- The `default` property is useful when you want to provide a fallback title for child route segments that don't explicitly specify a title.
+- The `template` key is used to create dynamic titles by adding a prefix or a suffix. This property applies to child route segments and not the segment in which it is defined.
+
+For example:
+
+```typescript
+// blog/page.tsx
+metadata.title = {
+  template: "%s | Code Evolution",
+  title: "Blog"
+};
+```
+
+This will result in the title "Blog | Code Evolution" in the browser.
+
+- Finally, we have the `absolute` title. If you want to provide a title that completely ignores the `title.template` set in the parent segments, you can use the `title.absolute` property.
+
+```typescript
+// blog/page.tsx
+metadata.title = {
+  absolute: "Blog"
+};
+```
+
+This will ignore the template set in the parent segment and only display "Blog" as the title.
+
+
+
+
+```
