@@ -137,12 +137,186 @@ We'll use the `Card` component in each section page to wrap the content.
 
 
 
-# Note: Ensure that the file structure and imports are set up correctly as per the Next.js conventions.
+### Note: Ensure that the file structure and imports are set up correctly as per the Next.js conventions.
 
 
 
 ---
 
+# Handling Unmatched Routes in Next.js Parallel Routes
 
+## Introduction
+In this , we'll explore how to handle unmatched routes in Next.js parallel routes. Unmatched routes occur when the content within a slot does not match the current URL. We'll discuss the implications of unmatched routes and how to prevent 404 errors by defining default views for unmatched slots.
 
+### Scenario
+Consider a complex dashboard with various sections such as user analytics, revenue metrics, and notifications. We want to implement subnavigation within the notifications section to navigate between default and archived views.
 
+## Implementing the Scenario
+Let's start by adding a link to navigate to the archived notifications view within the notifications slot.
+
+```tsx
+// complex-dashboard/pages/notifications.tsx
+
+import Link from 'next/link';
+
+const NotificationsPage: React.FC = () => {
+  return (
+    <div>
+      <h2>Notifications</h2>
+      <Link href="/complex-dashboard/archived">
+        <a>Archived</a>
+      </Link>
+    </div>
+  );
+};
+
+export default NotificationsPage;
+```
+
+Next, let's define the archived notifications page.
+
+```tsx
+// complex-dashboard/pages/archived.tsx
+
+const ArchivedNotificationsPage: React.FC = () => {
+  return (
+    <div>
+      <h2>Archived Notifications</h2>
+      {/* Archived notifications content */}
+    </div>
+  );
+};
+
+export default ArchivedNotificationsPage;
+```
+
+## Unmatched Routes
+By default, the content rendered within a slot matches the current URL. However, when navigating to a route where only one slot matches (e.g., `/complex-dashboard/archived`), the other slots become unmatched.
+
+### Handling Unmatched Routes
+- **Navigation from UI**: If navigated from the UI, the slot's previously active state is rendered.
+- **Page Reload**: Next.js looks for a `default.tsx` file in the slot. Without this file, a 404 error occurs.
+
+## Preventing 404 Errors
+To prevent 404 errors for unmatched routes, we need to define default views for each slot.
+
+```tsx
+// complex-dashboard/default.tsx
+// This serves as the fallback view for the `children` slot
+
+const DefaultPage: React.FC = () => {
+  return (
+    <div>
+      {/* Default content for children slot */}
+    </div>
+  );
+};
+
+export default DefaultPage;
+```
+
+Similarly, define `default.tsx` files for the `users` and `revenue` slots.
+
+```tsx
+// complex-dashboard/users/default.tsx
+
+const DefaultUsersPage: React.FC = () => {
+  return (
+    <div>
+      {/* Default content for users slot */}
+    </div>
+  );
+};
+
+export default DefaultUsersPage;
+```
+
+```tsx
+// complex-dashboard/revenue/default.tsx
+
+const DefaultRevenuePage: React.FC = () => {
+  return (
+    <div>
+      {/* Default content for revenue slot */}
+    </div>
+  );
+};
+
+export default DefaultRevenuePage;
+```
+
+Now, when navigating to an unmatched route and reloading the page, the default views will be rendered instead of a 404 error.
+
+## Summary
+In parallel routing, content within a slot usually matches the current URL. However, for unmatched slots, the behavior varies based on navigation. Defining `default.tsx` files for unmatched slots prevents 404 errors and ensures a smoother user experience.
+
+---
+
+# Conditional Routes in Next.js Parallel Routes
+
+In the last two videos, we learned about parallel routes, which allow us to display multiple pages simultaneously in the same layout without changing the URL. Now, let's briefly discuss conditional routes.
+
+## Introduction to Conditional Routes
+Parallel routes offer a way to implement conditional routing. For example, based on the user's authentication state, we can choose to render the dashboard for authenticated users or a login page for those who are not authenticated. This enables fully separated code on the same URL.
+
+## Implementing Conditional Routes
+Let's implement a scenario where we conditionally render a login page based on the user's authentication state.
+
+### Creating the Login Slot
+First, let's create the login slot within the complex dashboard folder.
+
+```tsx
+// complex-dashboard/login/page.tsx
+
+import React from 'react';
+
+const LoginPage: React.FC = () => {
+  return (
+    <div>
+      <h2>Please login to continue</h2>
+      {/* Login form */}
+    </div>
+  );
+};
+
+export default LoginPage;
+```
+
+### Implementing Conditional Rendering
+Next, in the dashboard layout, import the new slot through props and add conditional rendering based on the user's authentication state.
+
+```tsx
+// complex-dashboard/layout.tsx
+
+import React from 'react';
+import Login from './login/page';
+
+interface LayoutProps {
+  isLoggedIn: boolean;
+}
+
+const DashboardLayout: React.FC<LayoutProps> = ({ isLoggedIn }) => {
+  return (
+    <div>
+      {/* Other slots */}
+      {isLoggedIn ? (
+        <>
+          {/* Render dashboard content */}
+        </>
+      ) : (
+        <Login />
+      )}
+    </div>
+  );
+};
+
+export default DashboardLayout;
+```
+
+### Testing the Conditional Rendering
+By default, since `isLoggedIn` is set to true, you should see the dashboard UI. If you set `isLoggedIn` to false, you'll see the login page instead.
+
+## Conclusion
+Conditional routes in Next.js parallel routes enable us to conditionally render pages based on certain conditions, keeping our code well-separated under the same URL. Additionally, these slots benefit from independent error and loading states, as well as subnavigation.
+
+---
