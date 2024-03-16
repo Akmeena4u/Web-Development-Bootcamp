@@ -1,4 +1,4 @@
-# LangChain-JS-Crash-course
+# LangChain-JS
 
 This repository contains a series of example scripts showcasing the usage of Langchain, a JavaScript library for creating conversational AI applications.
 
