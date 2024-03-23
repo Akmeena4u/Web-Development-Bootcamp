@@ -235,4 +235,61 @@ In our previous video, we dived into React Server Components (RSC), which introd
 
 ---
 
+## Next.js Rendering Life Cycle - Server and Client Components
+
+**Introduction**
+
+This explores the rendering life cycle of server and client components in Next.js. Understanding this process is not essential for building Next.js apps, but it provides valuable insight.
+
+**Key Players**
+
+* Browser (Client)
+* Next.js (Server-side framework)
+* React (UI library)
+
+**Initial Loading Sequence**
+
+![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/6d292ae4-0f10-4966-ac56-f983fa601fb7)
+
+
+1. **Request & Matching:** Browser requests a page. Next.js app router matches the URL to a server component.
+2. **Server-side Rendering (SSR):**
+    * React renders the server component(s) and converts them to RSC (React Server Component) payload (JSON format).
+    * If a server component suspends, rendering pauses, and a placeholder is sent.
+    * Client components are prepared for later use.
+3. **HTML Generation & Streaming:**
+    * Next.js uses RSC payload to generate HTML on the server.
+    * This HTML is streamed to the browser for a fast, non-interactive preview.
+    * RSC payload is also streamed for progressive client-side rendering.
+4. **Client-side Rendering & Hydration:**
+    * React uses RSC payload and client component instructions to progressively render the UI.
+    * Client components are hydrated, transforming the app from static to interactive.
+
+**Update Sequence**
+
+![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/5ede24c9-897c-4c7d-b6cd-6c9fec25b132)
+
+
+1. **Refetch Request:** Browser requests a UI refresh (full route or part).
+2. **Server-side Processing:**
+    * Next.js processes the request and matches it to the server component.
+    * React renders the component tree.
+    * Unlike initial load, no HTML generation occurs for updates.
+3. **Streamed Response & Rendering:**
+    * Next.js streams the response data back to the client.
+    * Client triggers a render using the new output.
+    * React reconciles the new output with existing components, preserving UI state.
+
+**Summary**
+
+Next.js offers three server-rendering strategies: Static Rendering, Dynamic Rendering, and Streaming.
+
+---
+
+
+
+
+
+
+
 
