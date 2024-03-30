@@ -176,3 +176,335 @@ This code creates various `Typography` components with different variants, conte
 
 
 </details>
+
+<details>
+<summary>MUI- Button</summary>
+## Material UI for React - Buttons
+
+
+**Material UI Buttons**
+
+Material UI buttons are styled buttons based on Material Design specifications. They come in three main variants:
+
+* **Text Button:** Subtle button with minimal styling, ideal for less prominent actions.
+* **Contained Button:** Raised button that draws more attention, suitable for primary actions.
+* **Outlined Button:** In-between text and contained buttons, used for secondary actions.
+
+**Code Example - Basic Button Variants**
+
+```tsx
+// mui-button.tsx
+import Button from '@mui/material/Button';
+
+const ButtonComponent = () => {
+  return (
+    <div>
+      <Button variant="text">Text</Button>
+      <Button variant="contained">Contained</Button>
+      <Button variant="outlined">Outlined</Button>
+    </div>
+  );
+};
+
+export default ButtonComponent;
+```
+
+**Styling and Spacing**
+
+* Add spacing between buttons using CSS padding or Material UI's `Stack` component.
+* Set the `href` attribute on the text button to create a link.
+
+**Button Colors**
+
+Material UI uses a predefined color palette (primary, secondary, error, etc.). The buttons inherit the default colors from the theme. You can customize these colors later.
+
+**Code Example - Button Colors**
+
+This code demonstrates buttons with different color variants.
+
+```tsx
+// mui-button.tsx
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+
+const ButtonComponent = () => {
+  return (
+    <Stack spacing={2}>
+      <Button variant="contained" color="primary">
+        Primary
+      </Button>
+      <Button variant="contained" color="secondary">
+        Secondary
+      </Button>
+      <Button variant="contained" color="error">
+        Error
+      </Button>
+      <Button variant="contained" color="warning">
+        Warning
+      </Button>
+      <Button variant="contained" color="info">
+        Info
+      </Button>
+      <Button variant="contained" color="success">
+        Success
+      </Button>
+    </Stack>
+  );
+};
+
+export default ButtonComponent;
+```
+
+**Button Sizes**
+
+Use the `size` prop to control button size (small, medium, large).
+
+**Code Example - Button Sizes**
+
+```tsx
+// mui-button.tsx
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+
+const ButtonComponent = () => {
+  return (
+    <Stack spacing={2} direction="row" display="block">
+      <Button variant="contained" size="small">
+        Small
+      </Button>
+      <Button variant="contained" size="medium">
+        Medium
+      </Button>
+      <Button variant="contained" size="large">
+        Large
+      </Button>
+    </Stack>
+  );
+};
+
+export default ButtonComponent;
+```
+
+**Adding Icons**
+
+Material UI provides an icon library with various icons. Use the `startIcon` or `endIcon` prop to add icons before or after button text.
+
+**Code Example - Button with Icons**
+
+```tsx
+// mui-button.tsx
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import SendIcon from '@mui/icons-material/Send';
+import IconButton from '@mui/material/IconButton';
+
+const ButtonComponent = () => {
+  return (
+    <div>
+      <Stack spacing={2} direction="row">
+        <Button variant="contained" startIcon={<SendIcon />}>
+          Send (Start Icon)
+        </Button>
+        <Button variant="contained" endIcon={<SendIcon />}>
+          Send (End Icon)
+        </Button>
+      </Stack>
+      <IconButton color="success" size="small" aria-label="send">
+        <SendIcon />
+      </IconButton>
+    </div>
+  );
+};
+
+export default ButtonComponent;
+```
+
+**Disabling Elevation and Ripple Effect**
+
+* `disableElevation`: Removes elevation (shadow) from contained buttons.
+* `disableRipple`: Disables the ripple effect on button click.
+
+**Handling Click Events**
+
+Use the `onClick` prop to attach event handlers to buttons.
+
+
+
+</details>
+
+<details>
+<summary>MUI- Button group</summary>
+
+## Material UI for React - Button Group
+
+
+**Button Groups**
+
+A Button Group component groups related buttons visually. It improves the look and feel of button sets that represent a single functionality.
+
+**Code Example - Basic Button Group**
+
+```tsx
+// mui-button.tsx (modified)
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Stack from '@mui/material/Stack';
+
+const ButtonComponent = () => {
+  return (
+    <div>
+      <Stack direction="row" spacing={2}>
+        <ButtonGroup variant="contained">
+          <Button onClick={() => alert('Left clicked')}>Left</Button>
+          <Button>Center</Button>
+          <Button>Right</Button>
+        </ButtonGroup>
+      </Stack>
+    </div>
+  );
+};
+
+export default ButtonComponent;
+```
+
+**Styling and Button Group Variants**
+
+* Use the `variant` prop on the `ButtonGroup` component to style the entire group (contained, outlined, text).
+* Individual button variants are ignored when using `ButtonGroup`.
+
+**Code Example - Button Group Variants**
+
+```tsx
+// mui-button.tsx (modified)
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Stack from '@mui/material/Stack';
+
+const ButtonComponent = () => {
+  return (
+    <div>
+      <Stack direction="row" spacing={2}>
+        <ButtonGroup variant="contained">
+          <Button>Left</Button>
+          <Button>Center</Button>
+          <Button>Right</Button>
+        </ButtonGroup>
+        <ButtonGroup variant="outlined">
+          <Button>Left</Button>
+          <Button>Center</Button>
+          <Button>Right</Button>
+        </ButtonGroup>
+        <ButtonGroup variant="text">
+          <Button>Left</Button>
+          <Button>Center</Button>
+          <Button>Right</Button>
+        </ButtonGroup>
+      </Stack>
+    </div>
+  );
+};
+
+export default ButtonComponent;
+```
+
+**Orientation**
+
+Use the `orientation` prop to display buttons vertically.
+
+**Code Example - Vertical Button Group**
+
+```tsx
+// mui-button.tsx (modified)
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Stack from '@mui/material/Stack';
+
+const ButtonComponent = () => {
+  return (
+    <div>
+      <ButtonGroup orientation="vertical" variant="contained">
+        <Button>Left</Button>
+        <Button>Center</Button>
+        <Button>Right</Button>
+      </ButtonGroup>
+    </div>
+  );
+};
+
+export default ButtonComponent;
+```
+
+**Size and Color**
+
+Set the `size` and `color` props on the `ButtonGroup` component to style the entire group.
+
+**Click Events**
+
+Attach `onClick` handlers to individual buttons within the group.
+
+**Accessibility**
+
+Add an `aria-label` prop to the `ButtonGroup` for improved accessibility.
+
+**Conclusion**
+
+Button Groups enhance the UI and usability of related button sets in Material UI applications.
+
+</details>
+
+
+<details>
+<summary> MUI- Navbar</summary>
+
+## Introduction
+- Purpose: Create a navigation-related component, specifically a navbar, using Material UI.
+- Navbar: Primarily used for branding and navigation purposes.
+
+## File Creation
+- Create a new file named `navbar.tsx` in the `components` folder.
+
+```tsx
+// components/navbar.tsx
+
+import React from 'react';
+import { AppBar, Toolbar, IconButton, Typography, Stack, Button } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import MailIcon from '@mui/icons-material/Mail';
+
+const Navbar = () => {
+    return (
+        <AppBar position="static">
+            <Toolbar>
+                <IconButton size="large" edge="start" color="inherit" aria-label="menu">
+                    <MailIcon />
+                </IconButton>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    Pokemon App
+                </Typography>
+                <Stack direction="row" spacing={2}>
+                    <Button color="inherit">Features</Button>
+                    <Button color="inherit">Pricing</Button>
+                    <Button color="inherit">About</Button>
+                    <Button color="inherit">Login</Button>
+                </Stack>
+            </Toolbar>
+        </AppBar>
+    );
+};
+
+export default Navbar;
+```
+
+## Components Required
+- `AppBar`: To create the navbar structure.
+- `Toolbar`: Adds padding on the left and right side of the navbar.
+- `IconButton`: For the logo.
+- `Typography`: For displaying the app name.
+- `Stack`: For arranging navigation links.
+
+## Design Choices
+- Traditional navbar design with a logo and navigation links.
+- Assume building a website about Pokémon.
+
+
+</details>
