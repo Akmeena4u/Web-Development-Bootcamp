@@ -3,6 +3,8 @@
 ## Initializing State in Class Components:
 
 In class components, the state is typically initialized in the constructor using `this.state`. Here's an example:
+The state allows a component to manage its data dynamically, update it when necessary, and trigger re-renders to reflect those changes in the user interface.
+React expects state updates to be immutable. This means you should always create a new object when updating the state,
 
 ### Example - Car.jsx:
 
