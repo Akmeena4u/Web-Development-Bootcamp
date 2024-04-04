@@ -1,9 +1,11 @@
-/*To insert HTML content adjacent to an element in the Document Object Model (DOM)
 
-//#1--insertAdjacentHTML():
-The insertAdjacentHTML() method allows you to insert HTML content as a string into a specified position relative to an element.
-This method takes two arguments: the position where you want to insert the HTML content and the HTML string you want to insert.*/
+# Inserting HTML Content Adjacent to an Element in DOM
 
+## insertAdjacentHTML()
+
+The `insertAdjacentHTML()` method allows inserting HTML content as a string into a specified position relative to an element.
+
+```javascript
 const element = document.getElementById('myElement');
 const htmlContent = '<p>This is the new content</p>';
 
@@ -18,15 +20,20 @@ element.insertAdjacentHTML('beforeend', htmlContent);
 
 // Insert HTML content after the element
 element.insertAdjacentHTML('afterend', htmlContent);
+```
 
+## createElement() and appendChild()
 
+If you want to insert actual elements rather than HTML strings, you can create elements using `document.createElement()` and insert them using the `appendChild()` method.
 
-//#2-createElement() and appendChild():
- //If you want to insert actual elements rather than HTML strings, you can create elements using document.createElement() and insert them using the appendChild() method.
-
+```javascript
 const element = document.getElementById('myElement');
 const newElement = document.createElement('p');
 newElement.textContent = 'This is the new content';
 
 // Insert the new element as the last child of the element
 element.appendChild(newElement);
+
+
+These methods provide flexible ways to insert HTML content or elements adjacent to an element in the DOM.
+```
