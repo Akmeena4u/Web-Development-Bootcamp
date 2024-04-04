@@ -1,4 +1,4 @@
-
+In summary, for...of is used for iterating over iterable values like elements in arrays or characters in strings, while for...in is used for iterating over object properties (keys). 
 
 **For...in Loop:**
 - Used to iterate over the enumerable properties of an object.
