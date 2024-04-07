@@ -20,6 +20,9 @@ Cookies, sessions, and tokens are all used for authentication and authorization 
 - Require server-side memory or storage, challenging to scale across multiple servers.
 - Susceptible to session hijacking or fixation attacks.
 
+![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/b14ed639-d366-4886-bb3a-2509a649a7b5)
+
+
 ### Tokens
 
 - Self-contained data pieces encoding user identity, permissions, and claims.
