@@ -586,3 +586,634 @@ The `data.ts` file exports arrays containing menu items (`menu`) and additional 
 
 This implementation demonstrates a reusable and dynamic menu component in React, utilizing provided data to generate menu items with navigation links and associated icons. The styling ensures a responsive design suitable for various device screen sizes.
 </details>
+
+---
+<details>
+   <summary>Css Grid setup </summary>
+
+
+This guide demonstrates creating a grid layout using CSS Grid with the Recharts library for a dashboard-like interface.
+
+**1. Setting Up Grid System (home.jsx):**
+
+```jsx
+import React from 'react';
+import TopBox from './TopBox'; // Import your TopBox component
+import './Home.scss'; // Import styles
+
+const Home = () => {
+  return (
+    <div className="container">
+      <div className="box box-one">Box 1</div>
+      <div className="box box-two">Box 2</div>
+      <div className="box box-three">Box 3</div>
+      <div className="box box-four">Box 4</div>
+      <div className="box box-five">Box 5</div>
+      <div className="box box-six">Box 6</div>
+      <div className="box box-seven">Box 7</div>
+      <div className="box box-eight">Box 8</div>
+      <div className="box box-nine">Box 9</div>
+      <TopBox /> {/* Call your TopBox component */}
+    </div>
+  );
+};
+
+export default Home;
+```
+
+**2. Home.scss:**
+
+```scss
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(auto-fill, minmax(180px, auto));
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid var(--main-bg-color); /* Use your variable */
+  border-radius: 10px;
+}
+
+.box {
+  padding: 20px;
+  border-radius: 10px;
+  /* Add background color or styles for boxes */
+}
+
+.box-one {
+  grid-column-span: 3; /* Span across 3 columns */
+  grid-row-span: 2; /* Span across 2 rows */
+  background-color: lightblue; /* Example color */
+}
+
+.box-four {
+  grid-column: 2; /* Start at column 2 */
+}
+
+.box-seven {
+  grid-column: span 2; /* Span across 2 columns */
+  grid-row: span 2; /* Span across 2 rows */
+}
+
+/* Responsive styles will be added later */
+```
+
+**3. TopBox Component (TopBox.jsx):**
+
+```jsx
+import "./topBox.scss"
+import {topDealUsers} from "../../data.ts"
+
+const TopBox = () => {
+  return (
+    <div className="topBox">
+      <h1>Top Deals</h1>
+      <div className="list">
+        {topDealUsers.map(user=>(
+          <div className="listItem" key={user.id}>
+            <div className="user">
+              <img src={user.img} alt="" />
+              <div className="userTexts">
+                <span className="username">{user.username}</span>
+                <span className="email">{user.email}</span>
+              </div>
+            </div>
+            <span className="amount">${user.amount}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default TopBox
+```
+
+**4. TopBox.scss:**
+
+```scss
+@import "../../styles/responsive.scss";
+
+.topBox {
+  h1 {
+    margin-bottom: 20px;
+
+    @include xxl{
+      font-size: 24px;
+    }
+  }
+
+  .list {
+    .listItem {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+
+      .user {
+        display: flex;
+        gap: 20px;
+
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+
+          @include xxl{
+            display: none;
+          }
+          @include lg{
+            display: block;
+          }
+        }
+
+        .userTexts {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          .username {
+            font-size: 14px;
+            font-weight: 500;
+          }
+          .email {
+            font-size: 12px;
+
+            @include xxl{
+              display: none;
+            }
+            @include lg{
+              display: block;
+            }
+          }
+        }
+      }
+
+      .amount {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+```
+
+**Explanation:**
+
+* The `Home` component creates a container with nine boxes using CSS Grid.
+* `grid-template-columns` defines four columns of equal width.
+* `grid-template-rows` defines rows with a minimum height of 180px and automatic adjustments.
+* Individual boxes have styles applied with class names (e.g., `box-one`).
+* Grid properties like `grid-column-span` and `grid-row-span` are used to control the size and position of specific boxes.
+* The `TopBox` component displays a title and a list (to be populated later).
+
+**Note:** This example focuses on the basic grid layout. Adding charts and populating the list with data will be covered in later video sections (not included here).
+
+**Additional Notes:**
+
+* Consider using a CSS preprocessor like SCSS for better organization and maintainability.
+* Explore more advanced CSS Grid features like grid areas and gaps for complex layouts.
+
+</details>
+
+---
+<details>
+   <summary> Recharts basics</summary>
+I'd be glad to help you integrate Recharts with React and CSS to create interactive charts in your application. Here's a comprehensive guide that incorporates best practices and addresses potential issues:
+
+**1. Installation:**
+
+- Make sure you have a React project set up. If not, you can use `create-react-app` to quickly create one:
+
+  ```bash
+  npx create-react-app my-chart-app
+  ```
+
+- Install the `recharts` library using npm or yarn:
+
+  ```bash
+  cd my-chart-app
+  npm install recharts
+  ```
+
+**2. Import Necessary Components:**
+
+- In the React component where you want to display the chart, import the chart component you'll be using from `recharts` and any other necessary CSS styles:
+
+  ```javascript
+  import React from 'react';
+  import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+  import './Chart.css'; // Import your CSS file (optional)
+  ```
+
+**3. Prepare Your Data:**
+
+- Create an array of objects representing the data you want to visualize. Each object should have keys corresponding to the chart's axes. For example, for a line chart:
+
+  ```javascript
+  const data = [
+    { name: 'Jan', value: 10 },
+    { name: 'Feb', value: 20 },
+    { name: 'Mar', value: 30 },
+    // ... more data points
+  ];
+  ```
+
+**4. Create Your Chart Component:**
+
+- Use the imported chart component and its subcomponents to define the structure of your chart:
+
+  ```javascript
+  function MyChart() {
+    return (
+      <LineChart width={600} height={300} data={data}>
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Line type="monotone" dataKey="value" stroke="#8884d8" />
+        <Tooltip />
+      </LineChart>
+    );
+  }
+  ```
+
+**Explanation:**
+
+  - `LineChart`: The main component that defines the overall structure of the line chart.
+  - `width` and `height`: Set the desired dimensions of the chart.
+  - `data`: The array of objects containing the data to be visualized.
+  - `XAxis`: Defines the X-axis with `dataKey` specifying the data property corresponding to the X-axis values.
+  - `YAxis`: Defines the Y-axis.
+  - `Line`: Defines a line series with `type` (e.g., "monotone" for a smooth line), `dataKey` for the data property corresponding to the line values, and `stroke` for the line color.
+  - `Tooltip`: Adds a tooltip that appears on hover, displaying relevant information.
+
+**5. (Optional) Style Your Chart with CSS:**
+
+- Create a separate CSS file (`Chart.css`) to style the chart elements:
+
+  ```css
+  /* Chart.css */
+  .recharts-text.recharts-base-text {
+    font-family: sans-serif;
+  }
+
+  .recharts-cartesian-axis-line {
+    stroke: #ddd;
+  }
+
+  .recharts-line-text {
+    fill: #8884d8;
+  }
+
+  /* Add more styles as needed */
+  ```
+
+- Import this CSS file in your React component as shown in step 2.
+
+**Complete Example:**
+
+```javascript
+import React from 'react';
+import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import './Chart.css';
+
+const data = [
+  { name: 'Jan', value: 10 },
+  { name: 'Feb', value: 20 },
+  { name: 'Mar', value: 30 },
+  // ... more data points
+];
+
+function MyChart() {
+  return (
+    <LineChart width={600} height={300} data={data}>
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Line type="monotone" dataKey="value" stroke="#8884d8" />
+      <Tooltip />
+    </LineChart>
+  );
+}
+
+export default MyChart;
+```
+
+```css
+/* Chart.css */
+.recharts-text.recharts-base-text {
+  font-family: sans-serif;
+}
+
+.recharts-cartesian-axis-line {
+  stroke: #ddd;
+}
+
+.recharts-line-
+```
+</details>
+
+<details>
+   <summary>React Recharts For Box-2,3,4,5</summary>
+## Creating Charts with Recharts in React
+
+This guide demonstrates how to integrate Recharts with React to create interactive charts within a component named `ChartBox`.
+
+**1. Installation:**
+
+- Ensure you have a React project set up.
+- Install `recharts` using npm or yarn:
+
+  ```bash
+  npm install recharts
+  ```
+
+**2. Import Components:**
+
+- Import necessary components from `recharts` and your CSS file (optional):
+
+  ```javascript
+  import React from 'react';
+  import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+  import './ChartBox.css'; // Import your CSS file (optional)
+  ```
+
+**3. Data Preparation:**
+
+- Create an array of objects representing the data you want to visualize. Each object should have keys corresponding to the chart's axes:
+
+```javascript
+export const chartBoxUser = {
+  color: "#8884d8",
+  icon: "/userIcon.svg",
+  title: "Total Users",
+  number: "11.238",
+  dataKey: "users",
+  percentage: 45,
+  chartData: [
+    { name: "Sun", users: 400 },
+    { name: "Mon", users: 600 },
+    { name: "Tue", users: 500 },
+    { name: "Wed", users: 700 },
+    { name: "Thu", users: 400 },
+    { name: "Fri", users: 500 },
+    { name: "Sat", users: 450 },
+  ],
+};
+
+export const chartBoxProduct = {
+  color: "skyblue",
+  icon: "/productIcon.svg",
+  title: "Total Products",
+  number: "238",
+  dataKey: "products",
+  percentage: 21,
+  chartData: [
+    { name: "Sun", products: 400 },
+    { name: "Mon", products: 600 },
+    { name: "Tue", products: 500 },
+    { name: "Wed", products: 700 },
+    { name: "Thu", products: 400 },
+    { name: "Fri", products: 500 },
+    { name: "Sat", products: 450 },
+  ],
+};
+
+export const chartBoxRevenue = {
+  color: "teal",
+  icon: "/revenueIcon.svg",
+  title: "Total Revenue",
+  number: "$56.432",
+  dataKey: "revenue",
+  percentage: -12,
+  chartData: [
+    { name: "Sun", revenue: 400 },
+    { name: "Mon", revenue: 600 },
+    { name: "Tue", revenue: 500 },
+    { name: "Wed", revenue: 700 },
+    { name: "Thu", revenue: 400 },
+    { name: "Fri", revenue: 500 },
+    { name: "Sat", revenue: 450 },
+  ],
+};
+
+export const chartBoxConversion = {
+  color: "gold",
+  icon: "/conversionIcon.svg",
+  title: "Total Ratio",
+  number: "2.6",
+  dataKey: "ratio",
+  percentage: 12,
+  chartData: [
+    { name: "Sun", ratio: 400 },
+    { name: "Mon", ratio: 600 },
+    { name: "Tue", ratio: 500 },
+    { name: "Wed", ratio: 700 },
+    { name: "Thu", ratio: 400 },
+    { name: "Fri", ratio: 500 },
+    { name: "Sat", ratio: 450 },
+  ],
+};
+
+export const barChartBoxRevenue = {
+  title: "Profit Earned",
+  color: "#8884d8",
+  dataKey: "profit",
+  chartData: [
+    { name: "Sun", profit: 4000 },
+    { name: "Mon", profit: 3000 },
+    { name: "Tue", profit: 2000 },
+    { name: "Wed", profit: 2780 },
+    { name: "Thu", profit: 1890 },
+    { name: "Fri", profit: 2390 },
+    { name: "Sat", profit: 3490 },
+  ],
+};
+
+export const barChartBoxVisit = {
+  title: "Total Visit",
+  color: "#FF8042",
+  dataKey: "visit",
+  chartData: [
+    { name: "Sun", visit: 4000 },
+    { name: "Mon", visit: 3000 },
+    { name: "Tue", visit: 2000 },
+    { name: "Wed", visit: 2780 },
+    { name: "Thu", visit: 1890 },
+    { name: "Fri", visit: 2390 },
+    { name: "Sat", visit: 3490 },
+  ],
+};
+
+  
+
+**4. ChartBox Component:**
+
+- Create a `ChartBox` component that accepts props for data, title, icon, color, and percentage:
+```typescript
+import { Link } from "react-router-dom";
+import "./chartBox.scss";
+import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts";
+
+type Props = {
+  color: string;
+  icon: string;
+  title: string;
+  dataKey: string;
+  number: number | string;
+  percentage: number;
+  chartData: object[];
+};
+
+const ChartBox = (props: Props) => {
+  return (
+    <div className="chartBox">
+      <div className="boxInfo">
+        <div className="title">
+          <img src={props.icon} alt="" />
+          <span>{props.title}</span>
+        </div>
+        <h1>{props.number}</h1>
+        <Link to="/" style={{ color: props.color }}>
+          View all
+        </Link>
+      </div>
+      <div className="chartInfo">
+        <div className="chart">
+          <ResponsiveContainer width="99%" height="100%">
+            <LineChart data={props.chartData}>
+              <Tooltip
+                contentStyle={{ background: "transparent", border: "none" }}
+                labelStyle={{ display: "none" }}
+                position={{ x: 10, y: 70 }}
+              />
+              <Line
+                type="monotone"
+                dataKey={props.dataKey}
+                stroke={props.color}
+                strokeWidth={2}
+                dot={false}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+        <div className="texts">
+          <span
+            className="percentage"
+            style={{ color: props.percentage < 0 ? "tomato" : "limegreen" }}
+          >
+            {props.percentage}%
+          </span>
+          <span className="duration">this month</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ChartBox;
+```
+
+
+**Explanation:**
+
+  - `ResponsiveContainer` ensures responsiveness for different screen sizes.
+  - `LineChart` defines the overall structure of the line chart.
+  - `XAxis` and `YAxis` define the axes.
+  - `Line` defines the line series with `dataKey`, `stroke` (color), and `strokeWidth`.
+  - `Tooltip` provides information on hover, styled with transparency and position.
+  - Conditional styles are applied based on `percentage` value (not shown here).
+
+**5. (Optional) CSS Styling:**
+
+- Create a `ChartBox.css` file to style the chart elements:
+
+```css
+@import "../../styles/responsive.scss";
+
+.chartBox {
+  display: flex;
+  height: 100%;
+
+  @include sm {
+    flex-direction: column;
+  }
+
+  .boxInfo {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include sm {
+      gap: 20px;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      @include xxl {
+        font-size: 14px;
+      }
+    }
+
+    h1 {
+      @include xxl {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .chartInfo {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .chart {
+      width: 100%;
+      height: 100%;
+    }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+
+      .percentage {
+        font-weight: bold;
+        font-size: 20px;
+
+        @include xxl {
+          font-size: 16px;
+        }
+      }
+
+      .duration {
+        font-size: 14px;
+      }
+    }
+  }
+}
+```
+
+**6. Usage in Home Page:**
+
+- In your home page component, import and use the `ChartBox` component, passing the necessary props for each chart:
+
+  ```javascript
+  import ChartBox from './ChartBox';
+
+  function HomePage() {
+    return (
+      <div>
+        <ChartBox data={userData} title="Total Users" icon="user.svg" color="#8884d8" percentage={25} />
+        {/* Similar usage for productRevenue and conversionRate ChartBoxes */}
+      </div>
+    );
+  }
+  ```
+
+</details>
+
