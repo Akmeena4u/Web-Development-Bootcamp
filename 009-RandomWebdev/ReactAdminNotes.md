@@ -913,7 +913,8 @@ export default MyChart;
 .recharts-line-
 ```
 </details>
----
+
+
 
 <details>
    <summary>React Recharts For Box-2,3,4,5</summary>
@@ -1905,17 +1906,12 @@ export default Users;
 
 ---
 
-<details>
-<summary>Add modal</summary>
-
-![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/5b31fa25-b1b3-46be-81ea-d6339bbdfcfa)
-
-</details>
 
 ## React Modal Tutorial (Add New Item)
 
 In this tutorial, we'll implement a modal component to add new items dynamically based on the selected data type (e.g., users, products).
 
+![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/5b31fa25-b1b3-46be-81ea-d6339bbdfcfa)
 ### Creating the AddModal Component
 
 First, let's create a reusable `AddModal` component for displaying a modal to add new items.
