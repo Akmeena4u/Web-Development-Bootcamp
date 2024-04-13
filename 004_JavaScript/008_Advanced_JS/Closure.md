@@ -51,40 +51,105 @@ JavaScript resolves variable names from inner to outer scopes, known as lexical 
 
 ### Closure in JavaScript
 
-According to Mozilla docs, a closure is the combination of a function bundled together with references to its surrounding state. Let's break down closures in simple terms using examples.
 
-### Nested Function Scope Revisited
+- A closure is a combination of a function bundled together with references to its surrounding state (lexical environment). It allows an inner function to have access to the outer function's scope, even after the outer function has finished executing.
 
-Let's start with nested function scope:
-- Define a function `outer` with a variable `counter` initialized to 0.
-- Define a nested function `inner` that increments `counter` and logs its value.
-- Invoke `inner` inside `outer` and then invoke `outer`.
+**Lexical Scoping**:
+- JavaScript uses lexical scoping, meaning that the scope of variables is determined by their position within the source code.
 
-Output: `1`
+**Example**:
+```javascript
+function init() {
+  var name = "Mozilla"; // Local variable created by init
+  function displayName() {
+    // displayName() is the inner function (closure)
+    console.log(name); // Accesses outer variable 'name'
+  }
+  displayName(); // Output: 'Mozilla'
+}
 
-### Closure Example
+init();
+```
 
-Now, let's introduce closures:
-- Define `outer` as before but return `inner` instead of invoking it.
-- Assign the result of invoking `outer` to a variable `fn`.
-- Invoke `fn` twice.
+### Practical Closure Examples
 
-Output: `1` and `2`
+**Closure with Returned Function**:
+```javascript
+function makeFunc() {
+  const name = "Mozilla";
+  function displayName() {
+    console.log(name);
+  }
+  return displayName;
+}
 
-### Explanation
+const myFunc = makeFunc();
+myFunc(); // Output: 'Mozilla'
+```
+In this example:
 
-- **Nested Function Scope**: Inner functions have access to outer function variables due to lexical scoping.
-- **Closure**: When a function is returned from another function, it retains access to its enclosing function's scope.
-- the function defined in the closure ‘remembers’ the environment in which it was created.
--  They allow inner functions to access variables from their outer scope, even after the outer function has completed execution.
-- **Example Breakdown**:
-  - `outer` returns `inner`, creating a closure with the `counter` variable.
-  - Each invocation of `fn` increments `counter` within the closure, persisting its value.
+1. makeFunc() defines name and displayName() as an inner function.
+2.It returns displayName as a closure.
+3. myFunc holds a reference to displayName and when invoked (myFunc()), it prints Mozilla.
 
-### Key Points
+**Function Factory with Closures**:
+```javascript
+function makeAdder(x) {
+  return function(y) {
+    return x + y;
+  };
+}
 
-- Closures allow inner functions to access outer function variables even after the outer function finishes execution.
-- Understanding closures may require multiple reviews for clarity.
+const add5 = makeAdder(5);
+const add10 = makeAdder(10);
 
+console.log(add5(2)); // Output: 7
+console.log(add10(2)); // Output: 12
+```
+
+#### In this example:
+
+1. makeAdder(x) returns a closure that adds x to its argument y.
+2. add5 and add10 are closures created with different x values (5 and 10 respectively).
+3. Invoking add5(2) adds 5 to 2, resulting in 7.
+4. Invoking add10(2) adds 10 to 2, resulting in 12.
+
+
+**Practical Use Case - Text Size Buttons**:
+```javascript
+function makeSizer(size) {
+  return function() {
+    document.body.style.fontSize = `${size}px`;
+  };
+}
+
+const size12 = makeSizer(12);
+const size14 = makeSizer(14);
+const size16 = makeSizer(16);
+
+document.getElementById("size-12").onclick = size12;
+document.getElementById("size-14").onclick = size14;
+document.getElementById("size-16").onclick = size16;
+```
+```html
+<button id="size-12">12</button>
+<button id="size-14">14</button>
+<button id="size-16">16</button>
+```
+
+
+
+### Notes
+
+- **Closure Definition**: A closure is created when a function is defined within another function and has access to the outer function's variables, forming a persistent scope chain.
+  
+- **Lexical Scoping**: Determines variable scope based on where variables are declared in the source code.
+  
+- **Practical Uses**:
+  - Encapsulation and private variables.
+  - Callback functions and event handling.
+  - Creating function factories and modular code structures.
+
+Closures in JavaScript provide a powerful mechanism for managing scope and encapsulating functionality. They are widely used in various programming patterns and are essential for understanding advanced JavaScript concepts.
 
 
