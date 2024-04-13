@@ -5,7 +5,62 @@ Currying is a process in functional programming where we transform a function wi
 
 ### Definition
 
-Currying is the process of transforming a function with multiple arguments like `f(a, b, c)` into a sequence of nesting functions like `f(a)(b)(c)`.
+
+So imagine you have a function with multiple arguments: f(a, b, c). Using currying, we achieve a function f(a) that returns a function g(b) that returns a function h(c).
+
+Basically: f(a, b, c) —> f(a) => g(b) => h(c)
+
+Let's build a simple example that adds two numbers. But first, without currying:
+```javascript
+const add = (x, y) => x + y;
+add(1, 2); // 3
+```
+
+Great! Super simple! Here we have a function with two arguments. To transform it into a curried function we need a function that receives x and returns a function that receives y and returns the sum of both values.
+
+```javsscript
+const add = (x) => {
+  function addY(y) {
+    return x + y;
+  }
+
+  return addY;
+};
+```
+
+We can refactor addY into a anonymous arrow function:
+```javascript
+const add = (x) => {
+  return (y) => {
+    return x + y;
+  }
+};
+```
+Or simplify it by building one liner arrow functions:
+```javascirpt
+const add = (x) => (y) => x + y;
+```
+
+These three different curried functions have the same behavior: build a sequence of functions with only one argument.
+How can we use it?
+
+ow can we use it?
+```javascript
+add(10)(20); // 30
+```
+
+At first, it can look a bit strange, but there's a logic behind it. add(10) returns a function. And we call this function with the 20 value.
+This is the same as:
+```javascript
+const addTen = add(10);
+addTen(20); // 30
+```
+And this is interesting. We can generate specialized functions by calling the first function. Imagine we want an increment function. We can generate it from our add function by passing 1 as the value.
+```javascript
+const increment = add(1);
+increment(9); // 10
+```
+
 
 ### Example
 
@@ -59,4 +114,5 @@ This demonstrates how currying helps in composing functions with preset argument
 
 ### Further Exploration
 
-Currying has practical applications in functional programming and is used extensively for composing functions and creating reusable code. 
+-Currying has practical applications in functional programming and is used extensively for composing functions and creating reusable code. 
+- the concept of currying is definitely useful when you don't want to run the function until all the function parameters are available, especially when dealing with asynchronous data fetching from multiple APIs.
