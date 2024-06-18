@@ -22,6 +22,7 @@
   - **Data Types**: Supports more data types than JSON, including dates, embedded documents, and binary data.
   - **Usage**: Optimized for performance, commonly used in databases like MongoDB to efficiently store and retrieve data.
   - **Size**: Can be larger than JSON due to additional metadata for type information.
+  - 
 
   ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/c01ce05b-27a7-4537-8771-659107256624)
 
