@@ -1,5 +1,6 @@
 
 # React Router Guide
+React Router is a popular library for handling routing and navigation in React applications. It enables the creation of single-page applications (SPAs) where different views or components are rendered based on the URL, without refreshing the page.
 
 ## Features of React Router
 1. **Client and Server-Side Routing:** React Router provides robust routing capabilities for both client-side and server-side rendering in React applications.
