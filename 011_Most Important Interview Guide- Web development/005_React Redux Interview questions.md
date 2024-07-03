@@ -23,6 +23,24 @@
 
 This table summarizes the main differences between React Redux and React's Context API, highlighting their strengths and typical use cases in React applications.
 
+> **Give some advantages of using Redux.**
+> -Predictable State Management: Redux maintains a single source of truth, making it easier to understand and predict how data changes.
+> -Centralized State: All application state is stored in a single store, simplifying debugging and state inspection.
+> -Easier Debugging: Redux DevTools provide powerful debugging capabilities like action tracking and state history.
+> -Scalability: Redux scales well with larger applications due to its structured state management approach.
+> -Middleware Support: Redux supports middleware for additional functionalities like async API calls.
+> -Active Community: Benefit from extensive documentation, tutorials, and third-party libraries for easier development.
+> -Predictable Testing: Redux's pure reducers allow for straightforward unit testing of state transformations.
+> -Separation of Concerns: Promotes cleaner, maintainable code by separating UI components from state logic.
+> -Compatibility: Works seamlessly with various frontend libraries and frameworks beyond React.
+
+> **Mention key disadvantages of Redux.**
+> -Boilerplate Code: Redux requires writing boilerplate code for actions, action types, reducers, and connecting components.
+> -Complexity: It can add complexity, especially for small applications or simpler state management needs.
+> -Learning Curve: Redux has a steep learning curve, particularly for developers new to its concepts.
+> -Performance Concerns: Immutability and managing large stores can lead to performance issues in complex applications.
+> -Over-Reliance on Global State: Dependency on a global store can encourage coupling and reduce component encapsulation.
+
 ---
 
 > **What are the core principles of Redux?**
@@ -82,6 +100,45 @@ This table summarizes the main differences between React Redux and React's Conte
 > -Reducers: Reducers are used for all the reducers where the file name is corresponding to the state key.
 > -Store: Stores are used for store initialization. This directory works best in small and mid-level size apps.
 
+> **Is the state in Redux mutable or immutable?**
+> -Redux supports an immutable state. This implies that the status cannot be directly changed. Any modifications to the state must instead be made by establishing a new state object and applying the modifications to it.
+> -Immutable state is necessary for Redux for a number of reasons. It makes it simpler to reason about the application's state. When the state is immutable, it is always evident what the application's present state is. This makes finding flaws and debugging simpler.
+
+> **What do you understand by constants in Redux?**
+> -Constants define action types that are string values describing the type of action being performed. They distinguish between different actions in the reducer and help to prevent typos and other mistakes that can lead to bugs. Constants are typically defined as named variables. 
+
+> **What are pure functions in the context of Redux?**
+> -A pure function is defined as any function that doesn’t alter input data, doesn’t depend on the external state, and can consistently provide the same output for the same input. As opposed to React, Redux depends on such pure functions.
+
+> **What’s the typical flow of data like in a React with Redux app ?**
+> -Interaction: User interacts with the UI component.
+> -Action Dispatch: The component dispatches an action using action creators.
+> -Reducer Processing: The action is processed by the root reducer and passed to relevant smaller reducers.
+> -State Update: Reducers create a new state based on the action (immutable update).
+> -Store Update: The updated state is stored in the Redux store.
+> -Component Update: The updated state triggers the component to re-render with new data. This flow is unidirectional, ensuring pred
+> - ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/218da785-b040-4e89-81cc-4bf853db25a8)
+
+
+---
+> **What is flux?**
+> - Flux is an architectural pattern used in building client-side web applications, specifically designed by Facebook to manage state and data flow in a structured manner. It emphasizes a unidirectional flow of data, where actions trigger updates to the application state stored in centralized stores
+
+> **What are the key differences between Redux and Flux?**
+> -In flux, there are multiple stores to store the application states, whereas Redux stores the various states in a single store. Redux provides a set of tools called devtools for debugging; the flux doesn’t provide such tools.
+
+> **Differentiate between Relay & Redux.**
+> -Redux is an open-source Javascript Library. It acts like a central store to store the various state of an application. Redux manages all the states of the application. Relay, on the other hand, manages the state originating from the server. Relay performs caching and optimization on data, whereas Redux does not handle data fetching. Both have a single store for storing the states and can be easily integrated with React library.
+
+> **What do you understand about Redux Toolkit?**
+> - Redux Toolkit is a popular library for Redux that provides a more efficient and easier way to write Redux logic. It provides a set of utilities and conventions that make it easier to write high-quality Redux code and can help you avoid some of the common pitfalls of using Redux.
+> - *Some of the key features of Redux Toolkit include*
+> - Redux Toolkit simplifies common Redux tasks such as store setup, creating reducers, and writing immutable update logic
+> - Simplified handling of asynchronous logic with the createSlice function
+> -Improved store setup with the configureStore function. that combines several Redux core features: Redux Thunk middleware for asynchronous logic, Redux DevTools Extension integration, and default development environment settings.
+
+> **What is Redux DevTools?**
+> -Redux DevTools is a popular open-souce extension or a package (It can be used as both) that provides a debugging platform for applications. It provides the features of time-travel debugging and live editing. With devtools, we can inspect the state and action payload and even re-evaluate the staged action after changing the reducer code.
 ---
 **Here are interview questions related to multiple reducers in Redux:**
 
