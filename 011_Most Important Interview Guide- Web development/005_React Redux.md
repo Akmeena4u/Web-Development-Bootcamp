@@ -24,7 +24,8 @@
 > - Use the `connect` function from the `react-redux` library to map state and dispatch to the component’s props. This allows the component to access Redux state and dispatch actions.
 
 > **Can you write the Implementation of the Redux Store?**
-> - Certainly! Implementing a basic Redux store involves setting up the store, defining actions, creating reducers, and connecting them to your application. Here’s a step-by-step example:
+> <details><summary> Step by step Implementation of redux </summary>
+Certainly! Implementing a basic Redux store involves setting up the store, defining actions, creating reducers, and connecting them to your application. Here’s a step-by-step example:
 
 ### Step-by-Step Implementation of a Redux Store
 
@@ -153,6 +154,8 @@ export default App;
 - **Using Redux in Components:** In `App.js`, `useSelector` is used to extract data from the Redux store state (`counter` in this case), and `useDispatch` is used to dispatch actions (`increment` and `decrement`) to the store.
 
 This setup provides a basic implementation of Redux in a React application, demonstrating how to create a Redux store, define actions, connect Redux to React components, and update state based on user interactions.
+
+</details>
 
 > **What is middleware in Redux?**
 > - Middleware are functions that extend Redux’s capabilities. They sit between dispatching an action and the moment it reaches the reducer, allowing you to perform side effects or handle asynchronous actions.
