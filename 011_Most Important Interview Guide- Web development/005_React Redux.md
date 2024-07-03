@@ -1,22 +1,27 @@
 
 ### Redux Interview Questions
 
-> **What is Redux?**
-> -Redux is a state management library for JavaScript applications. It provides a predictable state container that helps manage application state in a consistent and organized manner. 
+> **Q : What is Redux?**
+> -**A:** Redux is a state management library for JavaScript applications. It provides a predictable state container that helps manage application state in a consistent and organized manner. 
 > -state container means, it stores and manages the state of an application.
 > - predictability means, all state transitions are explicit and trackable.
+
+---
 
 > **What are the core principles of Redux?**
 > - **Single Source of Truth:** The state of the entire application is stored in a single store.
 > - **State is Read-Only:** The only way to change the state is by dispatching an action.
 > - **Changes are Made with Pure Functions:** Reducers specify how the state changes in response to actions.
 
+---
+
 > **Core concepts of redux?**
-> - ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/a002a310-a21a-476a-91b7-7ed3a9cf8262)
+> ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/a002a310-a21a-476a-91b7-7ed3a9cf8262)
 > -  **Action**- An action is a plain JavaScript object that describes a change or event that occurred. It must have a `type` property, which indicates the type of action being performed.
 > - **Reducer**- A reducer is a pure function that takes the current state and an action as arguments and returns a new state. It determines how the state should change based on the action.
 > - **Store**- The Redux store holds the application state, provides methods to access the current state (`getState`), dispatch actions to update the state (`dispatch`), and allows subscription to state changes (`subscribe`). It serves as the centralized hub for managing application state in Redux.
 
+---
 
 > **How do you define an action in Redux?**
 > - An action is defined by creating a string constant for the action type (e.g., `BUY_CAKE`) to prevent spelling mistakes. It is then used to create an action object with a `type` property set to the constant value. Additional properties can be included based on specific requirements.
@@ -37,18 +42,13 @@
 > const store = createStore(rootReducer);
 > ```
 
+---
 
 > **Q: How does Redux support scalability in applications?**
 >
 > **A:** Redux supports scalability by allowing the creation of multiple Redux stores, each managing a specific part of the application state. This approach mirrors the separation of responsibilities in a scalable architecture, where different parts of an application can have their own state management without interfering with others.
 
 ---
-
-> **Q: Why is immutability important in Redux state updates?**
->
-> **A:** Immutability ensures that Redux state updates are predictable and consistent. By creating new state objects instead of mutating existing ones, Redux maintains the integrity of state transitions and facilitates efficient change detection, essential for predictable application behavior and state management.
-
-
 
 > **How do you connect a React component to Redux?**
 > - Use the `connect` function from the `react-redux` library to map state and dispatch to the component’s props. This allows the component to access Redux state and dispatch actions.
@@ -262,6 +262,85 @@ export default App;
 This setup provides a basic implementation of Redux in a React application, demonstrating how to create a Redux store, define actions, connect Redux to React components, and update state based on user interactions.
 
 </details>
+
+---
+
+**Here are interview questions related to multiple reducers in Redux:**
+
+> **Q: What are the advantages of using multiple reducers in Redux over a single reducer approach?**
+>
+> **A:** Using multiple reducers in Redux provides several advantages:
+> - Each reducer manages a specific part of the application state, enhancing modularity and maintainability.
+> - Reducers become simpler and easier to debug compared to a single large reducer handling multiple actions.
+> - Scalability improves as the application grows, allowing for independent management of different state slices.
+
+
+> **Q: How do you define multiple reducers in Redux? Can you provide an example?**
+>
+> **A:** Multiple reducers in Redux are defined by creating individual reducer functions for each part of the state. For example:
+>
+> ```javascript
+> const initialCakeState = {
+>   numberOfCakes: 10,
+> };
+> 
+> const initialIceCreamState = {
+>   numberOfIceCreams: 20,
+> };
+> 
+> const cakeReducer = (state = initialCakeState, action) => {
+>   switch (action.type) {
+>     case 'BUY_CAKE':
+>       return {
+>         ...state,
+>         numberOfCakes: state.numberOfCakes - 1,
+>       };
+>     default:
+>       return state;
+>   }
+> };
+> 
+> const iceCreamReducer = (state = initialIceCreamState, action) => {
+>   switch (action.type) {
+>     case 'BUY_ICE_CREAM':
+>       return {
+>         ...state,
+>         numberOfIceCreams: state.numberOfIceCreams - 1,
+>       };
+>     default:
+>       return state;
+>   }
+> };
+> ```
+
+
+> **Q: How can you combine multiple reducers into a single root reducer in Redux?**
+>
+> **A:** Redux provides the `combineReducers` method to combine multiple reducers into a single root reducer. Here's an example of combining the `cakeReducer` and `iceCreamReducer`:
+>
+> ```javascript
+> import { combineReducers, createStore } from 'redux';
+> 
+> const rootReducer = combineReducers({
+>   cake: cakeReducer,
+>   iceCream: iceCreamReducer,
+> });
+> 
+> const store = createStore(rootReducer);
+> ```
+
+
+> **Q: How do you access specific parts of the global state managed by combined reducers?**
+>
+> **A:** Specific parts of the global state managed by combined reducers can be accessed using their respective keys defined during the combination process. For example:
+>
+> ```javascript
+> const numberOfCakes = state.cake.numberOfCakes;
+> const numberOfIceCreams = state.iceCream.numberOfIceCreams;
+> ```
+
+
+---
 
 > **What is middleware in Redux?**
 > - Middleware are functions that extend Redux’s capabilities. They sit between dispatching an action and the moment it reaches the reducer, allowing you to perform side effects or handle asynchronous actions.
