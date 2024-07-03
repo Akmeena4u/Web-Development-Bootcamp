@@ -24,7 +24,8 @@
 > - Use the `connect` function from the `react-redux` library to map state and dispatch to the component’s props. This allows the component to access Redux state and dispatch actions.
 
 > **Can you write the Implementation of the Redux Store?**
-> <details><summary> Step by step Implementation of redux </summary>
+> - <details> 
+<summary> Step by step Implementation of redux </summary>
 Certainly! Implementing a basic Redux store involves setting up the store, defining actions, creating reducers, and connecting them to your application. Here’s a step-by-step example:
 
 ### Step-by-Step Implementation of a Redux Store
