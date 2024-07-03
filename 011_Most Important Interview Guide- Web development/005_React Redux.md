@@ -2,7 +2,7 @@
 ### Redux Interview Questions
 
 > **What is Redux?**
-> - Redux is a state management library for JavaScript applications, often used with React. It helps manage the state of an application in a predictable way.
+> -Redux is a state management library for JavaScript applications. It provides a predictable state container that helps manage application state in a consistent and organized manner. Redux is often used with libraries like React or Angular, but it can be used with any JavaScript framework or library.
 
 > **What are the core principles of Redux?**
 > - **Single Source of Truth:** The state of the entire application is stored in a single store.
