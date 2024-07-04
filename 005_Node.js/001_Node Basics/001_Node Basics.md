@@ -21,6 +21,8 @@ Firstly all the execution statements come under the Event queue
 - All synchronous tasks executed line by line using call stack
 - the asynchronous task went into web API . this is a thread pool and by default no. of threads will be equal to cores and each async task will get one thread to complete the task and the remaining threads waits and if execution is completed they will go under the callback queue and if call stack is empty at that moment these will enter into the call stack
 
+---
+
 #### Using Node.js:
 - **Node REPL**: Provides an interactive JavaScript shell where you can test and run JavaScript code directly.
   - Start Node REPL: Type `node` in your terminal or command prompt.
@@ -36,6 +38,8 @@ Firstly all the execution statements come under the Event queue
    - Choose the LTS (Long Term Support) version for stable releases suitable for production.
    - Accept terms and install using default settings.
 3. **Environment Setup**: Add Node.js installation path (typically `C:\Program Files\nodejs`) to the system's PATH environment variable.
+
+---
 
 #### What is npm (Node Package Manager)?
 - **npm** is the **package manager** for Node.js, used for installing and managing third-party libraries (packages) written in JavaScript.
