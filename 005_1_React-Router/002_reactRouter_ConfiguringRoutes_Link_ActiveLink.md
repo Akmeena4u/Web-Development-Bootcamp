@@ -103,9 +103,8 @@ yarn start
 
 ---
 
-Certainly! Here are the detailed notes formatted in Markdown based on the provided code examples:
 
-```markdown
+
 # React Router: Link and NavLink Components
 
 ## Link Component
