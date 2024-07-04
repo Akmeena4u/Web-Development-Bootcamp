@@ -7,6 +7,9 @@
 2. **Installation Steps**:
    - Download Node.js from [nodejs.org](https://nodejs.org).
    - Choose the LTS (Long Term Support) version for stable releases suitable for production.
+   - Select LTS Version of NodeJS.
+   - LTS - Long Term Support , Start with even number (Stable realese - can be used in production)
+   - Beta(Current) - Bugs , Unstability , start with odd number
    - Accept terms and install using default settings.
 3. **Environment Setup**: Add Node.js installation path (typically `C:\Program Files\nodejs`) to the system's PATH environment variable.
 
