@@ -51,7 +51,7 @@ URLs are fundamental in web browsing and server communication, providing a stand
 
 ---
 
-#### Example - Hadnling url
+#### Example - Handling URL
 - This example sets up an HTTP server using Node.js that handles different URL paths and query parameters, logs requests to a file, and responds accordingly to different routes.
 
 ```javascript
