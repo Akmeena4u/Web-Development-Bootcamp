@@ -72,6 +72,7 @@
 
 2. **Multiple Exports**
     - Use an object to export multiple values or functions.
+    - we are using js objects to multiple exports to avoid being overridden from last exports
         ```javascript
         module.exports = {
             add: function add(a, b) { return a + b; },
