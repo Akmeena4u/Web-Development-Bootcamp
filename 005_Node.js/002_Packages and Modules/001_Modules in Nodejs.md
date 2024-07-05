@@ -48,8 +48,9 @@
 ---
 
 #### 2. **Using Built-in Modules**
-    - Node.js provides a set of core modules for essential functionalities like file I/O operations, HTTP/HTTPS server creation, path manipulation, utility functions, OS 
-      information retrieval, event handling, and stream data processing. These modules can be accessed using the require function.
+- Node.js provides a set of core modules for essential functionalities like file I/O operations, HTTP/HTTPS server creation, path manipulation, utility functions, OS 
+  information retrieval, event handling, and stream data processing. These modules can be accessed using the require function.
+
     - Node.js includes several built-in modules like `http`, `fs`, and `crypto`.
         ```javascript
         const fs = require('fs');
