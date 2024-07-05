@@ -185,5 +185,11 @@ console.log(math.add(2, 3)); // 5
 console.log(math.subtract(5, 3)); // 2
 ```
 
+---
+#### Note 
+- while using module must add the below script in pacakge.json
+- main-  The entry point of the project. This is the file that will be executed when the module is required.
+- Example: "main": "module.js"
+
 ### Conclusion
 Node.js modules facilitate code organization, reusability, and collaboration within the JavaScript ecosystem. With built-in, user-defined, and third-party modules, developers can efficiently build scalable, maintainable, and feature-rich applications using Node.js. Understanding module systems like CommonJS and ES Modules is fundamental for effective Node.js development.
