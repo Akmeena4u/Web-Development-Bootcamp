@@ -1,5 +1,7 @@
 
 ### Step-by-Step Guide to Creating a Basic HTTP Server in Node.js
+- The Node.js HTTP module is a core module that provides the necessary functionality to create HTTP (Hypertext Transfer Protocol) servers and make HTTP requests. With the HTTP module, you can build web servers, APIs, and interact with other web services.
+
 
 #### 1. Setting Up the Project
 
