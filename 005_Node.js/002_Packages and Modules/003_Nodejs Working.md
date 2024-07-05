@@ -18,8 +18,6 @@ Welcome back everyone! In this video, we will explore the architecture of Node.j
    - All incoming requests are first placed in an Event Queue.
    - Example: User1 makes a request, it goes to the Event Queue. User2 makes another request, it also goes to the Event Queue.
    - The Event Queue manages these requests in a First In First Out (FIFO) manner.
-   - ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/6b3bf114-a74b-44a5-b286-b36dbaca83b8)
-
 
 3. **Event Loop:**
    - The Event Loop constantly monitors the Event Queue to see if there are any requests to be processed.
