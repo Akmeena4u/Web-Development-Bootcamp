@@ -1,18 +1,5 @@
 
 
-
-non blocking - async
-![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/1f110e03-4d90-4baf-a870-da9fce916603)
-
-blocking- sync
-![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/62eb9fdf-3302-4cab-b2b2-5d9849c6b997)
-
-![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/0f22375f-9e7c-403f-b799-bc812a37831a)
-
-//summary
-![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/299b9074-17b2-402b-b963-d69bc287aa85)
-
-
 ### Node.js Architecture and Execution Model
 
 #### Overview
