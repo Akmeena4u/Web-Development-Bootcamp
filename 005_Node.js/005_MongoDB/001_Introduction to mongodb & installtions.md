@@ -18,6 +18,8 @@
 - Mobile Apps
 - IoT (Internet of Things)
 
+---
+
 #### Installation of MongoDB
 
 **1. Download MongoDB:**
@@ -51,6 +53,8 @@
 
 - **Using MongoDB Compass:**
   - Download and install MongoDB Compass ([MongoDB Compass](https://www.mongodb.com/products/compass)).
+
+---
 
 #### Conclusion
 
