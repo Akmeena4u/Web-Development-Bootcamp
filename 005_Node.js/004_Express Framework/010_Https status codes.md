@@ -58,9 +58,10 @@ In this example:
 
 ---
 
-### Commanly used Http Status codes 
+### Commonly used Http Status codes 
 
-Certainly! Here's a tabular note explaining each HTTP status code individually:
+ Here's a tabular note explaining each HTTP status code individually:
+
 
 | Status Code | Category         | Meaning                                                 | Example Use Case                                       |
 |-------------|------------------|---------------------------------------------------------|--------------------------------------------------------|
