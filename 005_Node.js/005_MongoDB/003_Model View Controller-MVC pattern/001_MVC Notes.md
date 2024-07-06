@@ -8,19 +8,13 @@ The MVC pattern is a widely used software design pattern that divides an applica
 2. **View**: This represents the UI or the presentation layer of the application. It displays the data from the model to the user and sends user commands to the controller.
 3. **Controller**: This acts as an intermediary between the Model and the View. It listens to the input from the View, processes it (using the Model), and returns the output display to the View.
 
-### How it Works- Controller manipulates the model and model updates the view 
+### How it Works- View Send input from UI -> The controller manipulates the model ->  the model updates the view 
 
-**Controller manipulates the Model:**
-- When the user interacts with the app (e.g., clicks a button), the Controller handles this input.
-- The Controller then updates or retrieves data from the Model. This could involve creating a new item, updating an existing item, or fetching data from a database.
-
-**Model updates the View:**
-- After the Model is updated, it contains the new state of the data.
-- The View then reflects these changes to the user. This means the user interface is updated to show the latest data.
-
-  ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/cf041608-4e51-4a05-af7e-98f24815f1b2)
-
-**Summary ** -
+**Flow:**
+- View to Controller: User action (e.g., 'add to cart') is sent to the Controller.
+- Controller to Model: Controller manipulates the Model to perform the action (e.g., add item).
+- Model to View: The model updates the data and notifies the View of the change.
+- View Updates: View updates to show the added item.
 
   ![image](https://github.com/Akmeena4u/Web-Development-Bootcamp/assets/93425334/3e492dd5-1a16-4478-884a-081653eea754)
 
