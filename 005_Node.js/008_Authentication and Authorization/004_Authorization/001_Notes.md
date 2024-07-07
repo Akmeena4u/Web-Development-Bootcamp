@@ -1,4 +1,3 @@
-It seems like you're looking for detailed notes based on the conversation about authentication and authorization. Here's a summary of the key points and concepts discussed:
 
 ### Authentication vs Authorization
 
