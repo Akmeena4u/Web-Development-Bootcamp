@@ -1,7 +1,7 @@
 
 /*
 
-The os module in Node.js provides a way to interact with the operating system. It offers various methods to retrieve information about the operating system,
+The os module in Node.js provides a way to interact with the operating system. It offers various methods to retrive information about the operating system,
 such as CPU architecture, memory usage, and platform details.
 
 */
