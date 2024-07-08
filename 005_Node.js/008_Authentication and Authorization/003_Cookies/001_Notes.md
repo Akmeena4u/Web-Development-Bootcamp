@@ -4,7 +4,7 @@ Sure! Let's dive even deeper into the concepts of authentication, session manage
 
 #### Introduction
 
-In this video, we delve into the intricacies of authentication architecture, focusing on session management. This builds on the foundational concepts we've previously covered and explores more advanced topics, such as database-backed sessions and JWT-based authentication. Let's also address Shubham's question about storing sessions in the database.
+In this , we delve into the intricacies of authentication architecture, focusing on session management. This builds on the foundational concepts we've previously covered and explores more advanced topics, such as database-backed sessions and JWT-based authentication. Let's also address Shubham's question about storing sessions in the database.
 
 #### Authentication Methods
 
