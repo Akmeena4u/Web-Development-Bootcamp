@@ -4,7 +4,7 @@
 
 #### Overview
 
-Welcome back everyone! In this video, we will explore the architecture of Node.js. Understanding the internals and how Node.js operates is crucial for becoming an effective Node.js developer. This video is highly important, so make sure to watch it till the end.
+Welcome back everyone! In this , we will explore the architecture of Node.js. Understanding the internals and how Node.js operates is crucial for becoming an effective Node.js developer. This video is highly important, so make sure to watch it till the end.
 
 #### Node.js Architecture
 
