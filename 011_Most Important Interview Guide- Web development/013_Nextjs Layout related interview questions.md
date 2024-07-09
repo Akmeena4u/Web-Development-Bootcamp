@@ -50,7 +50,7 @@
 > - Implement the layout to include unique elements or styles relevant to the product details page, wrapping the `children` prop to render the actual page content (`ProductDetailsPage.tsx`).
 > ```// app/products/[product-id]/page.tsx
 > import React from 'react';
-> const ProductDetailsPage: React.FC = () => {
+> export default function ProductDetailsPage(){
 >  return <h1>Details about Product</h1>;
 > };
 > export default ProductDetailsPage;```
@@ -114,7 +114,7 @@
    ];
 
    //Layout Component
-   const Layout: React.FC = ({ children }) => {
+   export default function Authlayout (children ){
      const pathname = usePathname();
 
     //The isActive function takes a linkHref as an argument and checks if the current pathname starts with this linkHref. If it does, the function returns true, indicating 
@@ -141,7 +141,6 @@
      );
    };
 
-   export default Layout;
    ```
 
 **Q:12 Why do we need to add the `useClient` directive at the top of the file when using hooks in a Next.js component?**
@@ -157,28 +156,28 @@
 
  **Q14: Can you provide an example of how to navigate to the homepage when a button is clicked?**
 > Sure, here's an example:
-   ```typescript
-   // order-product/page.tsx
-   import { useRouter } from 'next/router';
-
-   const OrderProduct: React.FC = () => {
-     const router = useRouter();
-
-     const handleClick = () => {
-       console.log("Placing your order");
-       router.push('/');
-     };
-
-     return (
-       <>
-         <h1>Order Product</h1>
-         <button onClick={handleClick}>Place Order</button>
-       </>
-     );
-   };
-
-   export default OrderProduct;
-   ```
+>    ```typescript
+>    // order-product/page.tsx
+>    import { useRouter } from 'next/router';
+> 
+>    const OrderProduct: React.FC = () => {
+>      const router = useRouter();
+> 
+>      const handleClick = () => {
+>        console.log("Placing your order");
+>        router.push('/');
+>      };
+> 
+>      return (
+>        <>
+>          <h1>Order Product</h1>
+>          <button onClick={handleClick}>Place Order</button>
+>        </>
+>      );
+>    };
+> 
+>    export default OrderProduct;
+>    ```
 
 **Q15: What is the difference between `router.push()` and `router.replace()` in Next.js?**
 > `router.push()` adds a new entry to the browser's history stack, allowing users to navigate back to the previous page. `router.replace()` replaces the current history state instead of adding a new entry, which means the user cannot navigate back to the replaced state.
@@ -204,23 +203,92 @@
 ## Template files 
 
 **Q18: What distinguishes template files from layouts in Next.js?**
-     > Template files in Next.js differ from layouts by offering a solution for scenarios requiring per-page instance creation. Unlike layouts, which preserve state and 
-      effects across route changes, template files ensure that a new instance of the component is mounted on navigation.
-     > In scenarios where you need to create a new instance of a component on each page load, template files are preferable. For example, if you have a form input that should start fresh on each page visit despite route changes, using a template file ensures this behavior.
+> Template files in Next.js differ from layouts by offering a solution for scenarios requiring per-page instance creation. Unlike layouts, which preserve state and 
+  effects across route changes, template files ensure that a new instance of the component is mounted on navigation.
+> Layouts are ideal for preserving shared UI elements, while templates cater to scenarios requiring fresh component instances per page visit.
+> In scenarios where you need to create a new instance of a component on each page load, template files are preferable. For example, if you have a form input that should 
+  start fresh on each page visit despite route changes, using a template file ensures this behavior.
 
 **Q19: How do you define a template file in Next.js, and what role does it play in the app router?**
-> To define a template in Next.js, you export a default React component from a `template.js` or `template.tsx` file. This component accepts a `children` prop and wraps each child layout or page, ensuring that a new instance is mounted on navigation. This contrasts with layouts, which maintain state and effects.
+> To define a template in Next.js, you export a default React component from a `template.js` or `template.tsx` file as we do in layout. This component accepts a `children` prop and wraps each child layout or page, ensuring that a new instance is mounted on navigation. This contrasts with layouts, which maintain state and effects.
 
 **Q20: What steps would you take to convert an existing layout to a template in a Next.js application?**
 > To convert an existing `layout.tsx` file to a template:
 > - Rename the file to `template.tsx`.
 > - Ensure the component inside the file accepts and renders a `children` prop.
-   > - Verify that each page or layout nested within the template receives a new instance upon navigation.
+> - Verify that each page or layout nested within the template receives a new instance upon navigation.
 
-5. **Why is understanding the distinction between layouts and templates important in Next.js development?**
+---
+## Loading UI
 
-   > Understanding the difference helps developers choose the appropriate structure for managing state and component instances across route changes. Layouts are ideal for preserving shared UI elements, while templates cater to scenarios requiring fresh component instances per page visit.
 
-These questions aim to gauge the candidate's understanding of how layouts and templates function in Next.js, emphasizing their respective roles in managing component state and behavior across different navigation scenarios.
+**Q21: What is the purpose of the `loading.tsx` file in Next.js?**
+> The `loading.tsx` file in Next.js is designed to create loading states displayed to users while specific route segments' content is loading. It enhances user experience by providing immediate feedback upon navigation, ensuring the application feels responsive.
+>  The `loading.tsx` file automatically wraps the `page.tsx` file and all its nested children within a React Suspense boundary. Users briefly see the "Loading" text upon navigation, providing immediate feedback, before it is replaced by the actual content once loaded.
+
+**Q22: How do you implement a loading state for a route segment in Next.js?**
+> To implement a loading state:
+> Create a `loading.tsx` file in the designated folder for the route segment.
+> Define a `Loading` component that returns an `<h1>` element with the text "Loading".
+> Export the `Loading` component from the `loading.tsx` file.
+>  ```// pages/blog/loading.tsx
+> export default function loading(){
+>   return <h1>Loading</h1>;
+> };
+>
+> export default Loading;``
+
+
+---
+
+## Error Handling
+
+**Q23: What is the purpose of the `error.tsx` file, give a real-world scenario in Next.js.**
+> The `error.tsx` file in Next.js is designed for handling runtime errors gracefully within specific route segments. It improves user experience by displaying meaningful error messages when errors occur, such as failed network requests or other runtime issues.
+> Imagine navigating to a route like `/products/1/reviews/1` to view a review, but encountering an error due to a failed network request or an unexpected issue. In such cases, the `error.tsx` file would display an error message specific to the `reviewID` component, ensuring the rest of the application remains functional.
+> Create an `error.tsx` file in the appropriate route folder (e.g., `pages/products/[productID]/reviews/[reviewID]`).
+> ```
+> "use client"
+> export default function ErrorBoundary() {
+> return <div>Error in reviewld</div>;```
+
+
+**Q24: What are the benefits of using error handling techniques like `error.tsx` in Next.js applications?**
+> Implementing error handling with `error.tsx` offers several advantages:
+> - **Improved User Experience:** Users receive meaningful error messages instead of generic application errors, enhancing usability.
+> - **Isolated Error Handling:** Errors within specific route segments, like `reviewID`, do not affect other parts of the application, ensuring overall functionality.
+> - **Recovery Options:** The error component can attempt to recover from errors dynamically, reducing the need for full page reloads and improving responsiveness.
+
+**Q25: How does the `error.tsx` file fit into the broader file hierarchy of a Next.js application?**
+> In the Next.js file hierarchy:
+> - **Layout:** Wraps around the entire application layout, providing consistent UI elements.
+> - **Template:** Renders nested segments within a route, facilitating structured page layouts.
+> - **Error Boundary (`error.tsx`):** Handles runtime errors within specific segments, ensuring robust error handling and recovery options.
+> - **Suspense Boundary (`loading.tsx`):** Displays loading states while content is loading, maintaining user engagement.
+> - **Error Boundary (`not-found.tsx`):** Manages scenarios where requested resources are not found, guiding users with appropriate messages.
+> - **Page:** Represents the actual content and functionality of each route, ensuring dynamic user interactions.
+
+
+
+**Q26: How can you implement error recovery using the `error.tsx` file in Next.js?**
+> To implement error recovery:
+> - Include a reset function prop in the `error.tsx` component, which can be triggered to attempt re-rendering the component.
+> - Add a UI element, such as a "Try Again" button, that calls the reset function to retry rendering the component when an error occurs.
+> ```
+>  export default function ErrorBoundary({ error, reset }: { error: Error, reset: () => void }) {
+>    return (
+>        <div>
+>            <p>{error.message}</p>
+>            <button onClick={reset}>Try Again</button>
+>        </div>
+>    );
+>}```
+
+**Q27: Explain the concept of error bubbling in Next.js.**
+> Error bubbling in Next.js refers to how errors propagate up the component hierarchy to the closest error boundary. Errors are caught by the nearest `error.tsx` file or error boundary component, ensuring that they can be handled without disrupting the entire application.
+
+
+
+
 
 
