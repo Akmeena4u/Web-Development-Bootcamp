@@ -94,4 +94,133 @@
 >   - `<Link href={`/products/${productID}`}>Product 100</Link>`
 >   - Unlike traditional `<a>` tags, which initiate a server request for each navigation, the Link component leverages client-side routing provided by Next.js, resulting in faster navigation transitions and improved performance.
 
+#### Styling Active Links in Next.js
+
+**Q10: How can you determine if a link is active in a Next.js application?**
+> In Next.js, you can determine if a link is active by using the `usePathname` hook from `next/router`. This hook returns the current pathname, which you can then compare with the link's `href` to check if it is active. so It helps in determining the active route, allowing for conditional styling or logic based on the current path.
+
+
+**Q11: Can you provide an example of how to conditionally style an active link in a Next.js application?**
+> Sure, here's an example of how to conditionally style an active link:
+   ```typescript
+   import Link from 'next/link';
+   import { usePathname } from 'next/router';
+   import '../styles.css'; // Import the styles
+
+   const navLinks = [
+     { name: 'Register', href: '/register' },
+     { name: 'Login', href: '/login' },
+     { name: 'Forgot Password', href: '/forgot-password' }
+   ];
+
+   //Layout Component
+   const Layout: React.FC = ({ children }) => {
+     const pathname = usePathname();
+
+    //The isActive function takes a linkHref as an argument and checks if the current pathname starts with this linkHref. If it does, the function returns true, indicating 
+     that the link is active. This result is used to conditionally apply styles to the link.
+     const isActive = (linkHref: string) => {
+       return pathname.startsWith(linkHref);
+     };
+
+     return (
+       <div>
+         <nav>
+           {navLinks.map((link, index) => (
+            //The key attribute is important for React's reconciliation process. It helps React identify which items have changed, are added, or are removed, ensuring 
+               efficient updates to the DOM.
+             <Link key={index} href={link.href}>
+               <a className={isActive(link.href) ? 'font-bold mr-4' : 'text-blue-500 mr-4'}>
+                 {link.name}
+               </a>
+             </Link>
+           ))}
+         </nav>
+         {children}
+       </div>
+     );
+   };
+
+   export default Layout;
+   ```
+
+**Q:12 Why do we need to add the `useClient` directive at the top of the file when using hooks in a Next.js component?**
+> The `useClient` directive is necessary because hooks can only be used in client components. This directive ensures that the component is treated as a client component, allowing the use of hooks like `usePathname`.
+
+
+#### Programmatically Navigating in Next.js
+
+**Q13: How can you programmatically navigate to a different route in Next.js?**
+> You can programmatically navigate to a different route in Next.js using the `useRouter` hook from `next/router`. This hook provides methods like `push`, `replace`, `back`, and `forward` to navigate programmatically.
+
+
+
+ **Q14: Can you provide an example of how to navigate to the homepage when a button is clicked?**
+> Sure, here's an example:
+   ```typescript
+   // order-product/page.tsx
+   import { useRouter } from 'next/router';
+
+   const OrderProduct: React.FC = () => {
+     const router = useRouter();
+
+     const handleClick = () => {
+       console.log("Placing your order");
+       router.push('/');
+     };
+
+     return (
+       <>
+         <h1>Order Product</h1>
+         <button onClick={handleClick}>Place Order</button>
+       </>
+     );
+   };
+
+   export default OrderProduct;
+   ```
+
+**Q15: What is the difference between `router.push()` and `router.replace()` in Next.js?**
+> `router.push()` adds a new entry to the browser's history stack, allowing users to navigate back to the previous page. `router.replace()` replaces the current history state instead of adding a new entry, which means the user cannot navigate back to the replaced state.
+
+
+**Q16:What additional navigation methods are available in Next.js aside from `router.push()`?**
+> Additional navigation methods in Next.js include:
+> - `router.replace()`: Replaces the current history state.
+> - `router.back()`: Navigates back to the previous page in the browser's history stack.
+> - `router.forward()`: Navigates forward to the next page in the browser's history stack.
+
+
+**Q17:Why do we use the `useRouter` hook in Next.js for client-side navigation, even though we have the `Link` component available?**
+> The `Link` component in Next.js simplifies client-side navigation by providing declarative routing. However, the `useRouter` hook offers additional capabilities that complement the `Link` component's functionality.
+> - The `useRouter` hook in Next.js is crucial alongside the `Link` component for:
+>   - Facilitating programmatic navigation-  It allows for dynamic navigation based on user actions or conditions.
+>   - Providing access to router properties and methods.
+>   - Enabling conditional navigation logic.
+>   - Integrating with external libraries and handling navigation events effectively.
+
+---
+
+## Template files 
+
+**Q18: What distinguishes template files from layouts in Next.js?**
+     > Template files in Next.js differ from layouts by offering a solution for scenarios requiring per-page instance creation. Unlike layouts, which preserve state and 
+      effects across route changes, template files ensure that a new instance of the component is mounted on navigation.
+     > In scenarios where you need to create a new instance of a component on each page load, template files are preferable. For example, if you have a form input that should start fresh on each page visit despite route changes, using a template file ensures this behavior.
+
+**Q19: How do you define a template file in Next.js, and what role does it play in the app router?**
+> To define a template in Next.js, you export a default React component from a `template.js` or `template.tsx` file. This component accepts a `children` prop and wraps each child layout or page, ensuring that a new instance is mounted on navigation. This contrasts with layouts, which maintain state and effects.
+
+**Q20: What steps would you take to convert an existing layout to a template in a Next.js application?**
+> To convert an existing `layout.tsx` file to a template:
+> - Rename the file to `template.tsx`.
+> - Ensure the component inside the file accepts and renders a `children` prop.
+   > - Verify that each page or layout nested within the template receives a new instance upon navigation.
+
+5. **Why is understanding the distinction between layouts and templates important in Next.js development?**
+
+   > Understanding the difference helps developers choose the appropriate structure for managing state and component instances across route changes. Layouts are ideal for preserving shared UI elements, while templates cater to scenarios requiring fresh component instances per page visit.
+
+These questions aim to gauge the candidate's understanding of how layouts and templates function in Next.js, emphasizing their respective roles in managing component state and behavior across different navigation scenarios.
+
 
