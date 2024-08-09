@@ -279,3 +279,90 @@ These notes provide a structured overview of the tutorial, capturing the key ste
 </details>
 
 ---
+
+<details>
+<summary> Database setup</summary>
+
+
+### **Video Notes: Building a Stack Overflow Clone with NextJS and Appwrite**
+
+#### **Introduction**
+- **Presenter**: AES
+- **Objective**: Continue building the Stack Overflow clone by setting up the database and introducing Zustand for state management.
+
+#### **Database Setup**
+1. **Overview**:
+   - Previous video covered models and code setup
+   - Current focus: Spin up models into the database and introduce Zustand.
+
+2. **Configuration Recap**:
+   - Client and server configurations were completed.
+   - Models for questions, comments, votes, and answers were created.
+   - Index creation was discussed but faced issues.
+
+3. **Renaming Storage Collection**:
+   - Renamed `storageCollection` to `storageSetup` for clarity.
+   - Purpose: Create storage bucket separately from database setup.
+
+4. **Middleware Setup**:
+   - Middleware is used to run code on specific routes.
+   - File must be named `middleware.ts` and placed in the `src` directory.
+   - Middleware runs on all routes except those specified in the matcher.
+
+5. **Middleware Configuration**:
+   - Import necessary modules: `NextRequest`, `NextResponse`.
+   - Define middleware function to run on all routes except specified ones.
+   - Use `matcher` to exclude routes like `/api`, `_next/static`, `_next/image`, and `/favicon.ico`.
+
+6. **Database and Storage Initialization**:
+   - Import `getOrCreateDB` and `getOrCreateStorage`.
+   - Use `Promise.all` to run both functions asynchronously.
+   - Ensure middleware continues to the next process using `next()`.
+
+7. **Running the Application**:
+   - Start the application using `npm run dev`.
+   - Verify database and storage creation in the console logs.
+   - Manually verify in Appwrite console if necessary.
+
+8. **Index Creation Issue**:
+   - Faced issues with automatic index creation.
+   - Manually created indexes for `title` and `content` in the Appwrite console.
+
+#### **Zustand State Management**
+1. **Introduction to Zustand**:
+   - Zustand is a lightweight state management library.
+   - Easy to set up and use with minimal configuration.
+
+2. **Setting Up Zustand**:
+   - Create a store using Zustand.
+   - Define state and actions within the store.
+   - Use the store in components to manage state.
+
+3. **Middleware and Zustand Integration**:
+   - Middleware ensures database and storage are set up before Zustand initializes.
+   - Zustand can then use the initialized database and storage for state management.
+
+#### **Conclusion**
+- **Next Steps**:
+   - Continue with Zustand setup and integration.
+   - Ensure all parts of the application are working seamlessly together.
+
+- **Call to Action**:
+   - Comment on the video for feedback and support.
+   - Subscribe to the channel for more updates.
+
+### **Key Takeaways**
+- **Middleware**: Essential for running initialization code on specific routes.
+- **Database Setup**: Ensure proper configuration and manual verification if automatic processes fail.
+- **Zustand**: Lightweight and straightforward state management library, ideal for this project.
+
+### **Additional Notes**
+- **Error Handling**: Always include error handling and logging for better debugging.
+- **Manual Verification**: Sometimes necessary to manually verify and create indexes or other configurations.
+- **Community Engagement**: Encouraged to comment and subscribe for continuous learning and support.
+
+These notes should provide a comprehensive overview of the video content and the steps involved in setting up the database and Zustand for the Stack Overflow clone project.
+
+</details>
+
+---
