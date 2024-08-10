@@ -366,3 +366,44 @@ These notes should provide a comprehensive overview of the video content and the
 </details>
 
 ---
+
+<details>
+<summary> Nextjs Zusland Auth</summary>
+
+### Introduction
+- **Video Topic:** Continuing work on the Stack Overflow clone.
+- **Focus:** Implementation of login and registration functionality.
+- **UI Elements:** Primary focus on core functionality; using ShadCN for UI components, but minimal UI design will be done.
+- **Call to Action:** Encourages viewers to subscribe and comment to reach a target of 150 comments.
+
+### ShadCN and Setup
+- **ShadCN:** Installing and configuring ShadCN, a component library that lives inside the codebase.
+- **Icons:** Mention of using icons from the library, though any icon library can be used.
+- **Installation:** Steps to install ShadCN and create UI components like labels and input fields.
+
+### Authentication Setup
+- **Folder Structure:** Creating folders for authentication (`/auth`) with subfolders for `login` and `register`.
+- **Page Components:** Created `page.tsx` files for both `login` and `register`.
+- **Layout Component:** 
+  - **Purpose:** Provides a wrapper around the authentication pages.
+  - **Children:** React nodes that will be rendered within the layout.
+  - **Session Handling:** Checks if a session exists using `useOStore`. If a session exists, redirects the user away from the login/register pages.
+
+### Layout Implementation
+- **Layout Creation:** 
+  - **Default Export:** Ensuring the layout is exported as the default.
+  - **React Nodes:** Handles React nodes as children to be rendered inside the layout.
+  - **Session Check:** Utilizes `useEffect` to check for an active session; if found, redirects to the homepage.
+
+### Register Page
+- **Register Page Setup:**
+  - **Rough Structure:** Basic setup for the `register` page using React components.
+  - **State Management:** Uses React’s `useState` for managing the loading state during account creation.
+  - **Account Creation:** The `createAccount` function from `useOStore` is used to handle account registration.
+
+### Next Steps
+- **Component Injection:** Plan to inject components such as labels and inputs into the register page.
+- **Functionality Over UI:** Emphasis on focusing on the core functionality before applying detailed UI.
+
+
+</details>
