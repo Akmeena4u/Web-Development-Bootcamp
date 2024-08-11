@@ -407,3 +407,212 @@ These notes should provide a comprehensive overview of the video content and the
 
 
 </details>
+
+
+<details>
+<summary> Handling Complex Backend Logic</summary>
+
+
+
+### **Stack Overflow Clone: Handling Complex Backend Logic in Next.js**
+
+In this part of the series, we're focusing on handling some complex backend logic in our Stack Overflow clone. The complexity arises not from the code itself but from the need to manage multiple collections in our database and handle various user interactions that impact different parts of the application.
+
+#### **Overview**
+
+The primary focus here is to manage the reputation system and handle user interactions, such as upvoting and downvoting answers, which affect both the user's reputation and the answer's score. We will create custom API routes in Next.js to manage these interactions effectively.
+
+#### **Backend as a Service (BaaS)**
+
+In this application, we're using a Backend as a Service (BaaS), specifically **Appwrite**, to manage our backend operations. The goal is to offload as much as possible to the BaaS, such as document creation, querying, and filtering. However, some operations, like managing reputation or handling upvotes and downvotes, require custom logic that we'll handle on our server.
+
+#### **Complexity Overview**
+
+1. **Reputation Management**: 
+   - When a user posts a question, their reputation should increase.
+   - When a user posts an answer, their reputation should also increase.
+   - If an answer is upvoted, the author's reputation should increase.
+   - If an answer is downvoted, the author's reputation should decrease.
+
+2. **Upvote/Downvote Handling**:
+   - Clicking the upvote button should increase the answer's upvote count and the user's reputation.
+   - Clicking the upvote button again (to remove the upvote) should decrease the upvote count and the user's reputation.
+   - Similarly, downvotes need to be managed in a way that reflects accurately on both the answer and the user's reputation.
+
+#### **Custom API Routes in Next.js**
+
+To handle these operations, we create custom API routes in Next.js. These routes will manage the logic for posting answers, updating reputations, and handling upvotes/downvotes.
+
+##### **Setting Up the API Route**
+
+In Next.js, API routes are placed under the `pages/api` directory. For this application, we'll create a route for handling answers.
+
+1. **Create the API Directory and File Structure:**
+   - Navigate to the `pages` directory.
+   - Create a new folder named `api`.
+   - Inside the `api` folder, create another folder named `answer`.
+   - Inside the `answer` folder, create a file named `route.js`.
+
+2. **Defining the API Route:**
+   - The file `route.js` should export an asynchronous function named `POST` to handle POST requests.
+
+```javascript
+// pages/api/answer/route.js
+
+import { NextResponse } from 'next/server';
+
+export async function POST(request) {
+    try {
+        const { questionId, answer, authorId } = await request.json();
+        
+        // Validate input (optional but recommended)
+        if (!questionId || !answer || !authorId) {
+            return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+        }
+
+        // Create a new answer document in the database
+        const response = await createDocument({
+            content: answer,
+            questionId,
+            authorId,
+        });
+
+        // Increase author's reputation
+        await increaseAuthorReputation(authorId);
+
+        return NextResponse.json({ message: 'Answer created successfully', response });
+    } catch (error) {
+        return NextResponse.json({ error: error.message || 'Error creating answer' }, { status: error.status || 500 });
+    }
+}
+```
+
+##### **Handling Document Creation**
+
+In the above code, we use a function `createDocument` to create a new answer document in the database. This function would interact with the BaaS (e.g., Appwrite) to store the new answer.
+
+```javascript
+async function createDocument({ content, questionId, authorId }) {
+    const response = await db.createDocument('answers', {
+        content,
+        questionId,
+        authorId,
+        createdAt: new Date().toISOString(),
+    });
+    return response;
+}
+```
+
+##### **Increasing Author Reputation**
+
+We also need to handle increasing the reputation of the user who posts the answer. This can be done with a function `increaseAuthorReputation`.
+
+```javascript
+async function increaseAuthorReputation(authorId) {
+    // Fetch user preferences
+    const userPrefs = await db.getDocument('user_prefs', authorId);
+
+    // Increase the reputation
+    const updatedPrefs = {
+        ...userPrefs,
+        reputation: (userPrefs.reputation || 0) + 10, // Example increase by 10 points
+    };
+
+    // Update the user preferences
+    await db.updateDocument('user_prefs', authorId, updatedPrefs);
+}
+```
+
+#### **Handling Upvotes and Downvotes**
+
+The logic for handling upvotes and downvotes can be integrated similarly:
+
+1. **Create an API route for upvoting:**
+
+```javascript
+// pages/api/upvote/route.js
+
+import { NextResponse } from 'next/server';
+
+export async function POST(request) {
+    try {
+        const { answerId, authorId } = await request.json();
+
+        // Fetch the answer
+        const answer = await db.getDocument('answers', answerId);
+
+        // Update upvotes and reputation
+        const updatedAnswer = {
+            ...answer,
+            upvotes: (answer.upvotes || 0) + 1,
+        };
+
+        await db.updateDocument('answers', answerId, updatedAnswer);
+        await increaseAuthorReputation(authorId);
+
+        return NextResponse.json({ message: 'Upvoted successfully', updatedAnswer });
+    } catch (error) {
+        return NextResponse.json({ error: error.message || 'Error upvoting answer' }, { status: error.status || 500 });
+    }
+}
+```
+
+2. **Create an API route for downvoting:**
+
+```javascript
+// pages/api/downvote/route.js
+
+import { NextResponse } from 'next/server';
+
+export async function POST(request) {
+    try {
+        const { answerId, authorId } = await request.json();
+
+        // Fetch the answer
+        const answer = await db.getDocument('answers', answerId);
+
+        // Update downvotes and reputation
+        const updatedAnswer = {
+            ...answer,
+            downvotes: (answer.downvotes || 0) + 1,
+        };
+
+        await db.updateDocument('answers', answerId, updatedAnswer);
+        await decreaseAuthorReputation(authorId);
+
+        return NextResponse.json({ message: 'Downvoted successfully', updatedAnswer });
+    } catch (error) {
+        return NextResponse.json({ error: error.message || 'Error downvoting answer' }, { status: error.status || 500 });
+    }
+}
+```
+
+##### **Decreasing Author Reputation**
+
+Similarly, we need to implement the `decreaseAuthorReputation` function:
+
+```javascript
+async function decreaseAuthorReputation(authorId) {
+    // Fetch user preferences
+    const userPrefs = await db.getDocument('user_prefs', authorId);
+
+    // Decrease the reputation
+    const updatedPrefs = {
+        ...userPrefs,
+        reputation: Math.max(0, (userPrefs.reputation || 0) - 10), // Example decrease by 10 points, but not below 0
+    };
+
+    // Update the user preferences
+    await db.updateDocument('user_prefs', authorId, updatedPrefs);
+}
+```
+
+### **Summary**
+
+- We created custom API routes in Next.js to handle complex backend logic that involves interacting with multiple collections in the database.
+- We handled user reputation management by updating the reputation score based on user interactions like posting answers, upvoting, and downvoting.
+- The API routes were structured to ensure that all complex operations, like updating multiple documents and handling promises, were managed on the server side, providing better control over the application logic.
+
+
+
+</details>
