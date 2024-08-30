@@ -81,8 +81,8 @@
 >  
 >  This flow demonstrates how JSX integrates seamlessly with HTML in React, with `index.html` serving as the entry point, `main.jsx` connecting React to the HTML, and `App.jsx` defining the component structure using JSX syntax.
 
-**[⬆ Back to React Basics](#react-basics)**
-**[⬆ Back to Top](#table-of-contents)**
+- **[⬆ Back to React Basics](#react-basics)**
+- **[⬆ Back to Top](#table-of-contents)**
 ---
 
 ### React JSX
