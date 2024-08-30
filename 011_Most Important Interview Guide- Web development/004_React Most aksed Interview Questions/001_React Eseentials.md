@@ -1,10 +1,9 @@
 ### Table of Contents
 
 <!-- TOC_START -->
-
-| No. | Questions                                                                                                                                                                                                                        |
-| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     | **Setting Up React App**                                                                                                                                                                                                         |
+| No. | Questions                                                                                                                                            |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+|     | **Setting Up React App**                                                                                                                            |
 | 1   | [Why is Node.js important for setting up a React project?](#why-is-nodejs-important-for-setting-up-a-react-project)                                                                                                             |
 | 2   | [How do you create and start a new React project?](#how-do-you-create-and-start-a-new-react-project)                                                                                                                             |
 | 3   | [What is the purpose of the `npm run build` command, and what should be done after it?](#what-is-the-purpose-of-the-npm-run-build-command-and-what-should-be-done-after-it)                                                        |
@@ -35,7 +34,6 @@
 
 ### Setting Up React App
 
-**Why is Node.js important for setting up a React project?**  
 **Why is Node.js important for setting up a React project?**
 > Node.js provides the runtime environment for executing JavaScript outside a browser and includes npm, which manages the dependencies required for a React project.*
 
