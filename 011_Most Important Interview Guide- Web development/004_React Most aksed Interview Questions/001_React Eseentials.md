@@ -36,6 +36,7 @@
 ### Setting Up React App
 
 **Why is Node.js important for setting up a React project?**  
+**Why is Node.js important for setting up a React project?**
 > Node.js provides the runtime environment for executing JavaScript outside a browser and includes npm, which manages the dependencies required for a React project.*
 
 **How do you create and start a new React project?**  
