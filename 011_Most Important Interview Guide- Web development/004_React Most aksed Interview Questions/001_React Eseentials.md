@@ -2,6 +2,38 @@
 
 ### Table of Contents
 
+<!-- toc -->
+
+### Table of Contents
+
+- [Setting Up React App](#setting-up-react-app)
+  - [Why is Node.js important for setting up a React project?](#why-is-nodejs-important-for-setting-up-a-react-project)
+  - [How do you create and start a new React project?](#how-do-you-create-and-start-a-new-react-project)
+  - [What is the purpose of the `npm run build` command, and what should be done after it?](#what-is-the-purpose-of-the-npm-run-build-command-and-what-should-be-done-after-it)
+  - [What are the advantages of using Vite over Create React App?](#what-are-the-advantages-of-using-vite-over-create-react-app)
+- [React Basics](#react-basics)
+  - [What is React?](#what-is-react)
+  - [What is the history behind React's evolution?](#what-is-the-history-behind-reacts-evolution)
+  - [What are the major features of React?](#what-are-the-major-features-of-react)
+  - [How does JSX integrate with HTML in a React application, and what is the typical flow for rendering HTML using JSX in a Vite-powered React project?](#how-does-jsx-integrate-with-html-in-a-react-application-and-what-is-the-typical-flow-for-rendering-html-using-jsx-in-a-vite-powered-react-project)
+- [React JSX](#react-jsx)
+  - [What is JSX in React, and why was it created?](#what-is-jsx-in-react-and-why-was-it-created)
+  - [What are the key rules for using JSX in React?](#what-are-the-key-rules-for-using-jsx-in-react)
+  - [How can you apply CSS in JSX?](#how-can-you-apply-css-in-jsx)
+  - [How can you use JavaScript expressions inside JSX?](#how-can-you-use-javascript-expressions-inside-jsx)
+  - [What are React elements, and how are they related to JSX?](#what-are-react-elements-and-how-are-they-related-to-jsx)
+  - [Explain the role of Babel in working with JSX.](#explain-the-role-of-babel-in-working-with-jsx)
+  - [What is the significance of wrapping multiple JSX elements in a single parent element?](#what-is-the-significance-of-wrapping-multiple-jsx-elements-in-a-single-parent-element)
+- [React Components](#react-components)
+  - [What is a React Component, and why are they important?](#what-is-a-react-component-and-why-are-they-important)
+  - [What are the two types of components in React? Provide examples for each.](#what-are-the-two-types-of-components-in-react-provide-examples-for-each)
+- [SPA vs MPA](#spa-vs-mpa)
+  - [What is the main difference between a Single-Page Application (SPA) and a Multi-Page Application (MPA)?](#what-is-the-main-difference-between-a-single-page-application-spa-and-a-multi-page-application-mpa)
+  - [What are the advantages and disadvantages of using a Single-Page Application (SPA) over a Multi-Page Application (MPA)?](#what-are-the-advantages-and-disadvantages-of-using-a-single-page-application-spa-over-a-multi-page-application-mpa)
+  - [How can SEO challenges in SPAs be mitigated?](#how-can-seo-challenges-in-spas-be-mitigated)
+
+<!-- toc end -->
+
 | No. | Questions                                                                                                                                                                                                                        |
 | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     | **Setting Up React App**                                                                                                                                                                                                         |
