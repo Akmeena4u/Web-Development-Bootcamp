@@ -1,6 +1,6 @@
 ### Table of Contents
 
-### Setting Up React App**
+### Setting Up React App
 
 **Why is Node.js important for setting up a React project?**  
 > Node.js provides the runtime environment for executing JavaScript outside a browser and includes npm, which manages the dependencies required for a React project.*
@@ -14,6 +14,7 @@
 **What are the advantages of using Vite over Create React App?**  
 > Vite offers faster build times, hot module replacement (HMR), and more flexible configuration, making it ideal for performance-sensitive projects. HMR is a feature in modern JavaScript development tools, like Vite and Webpack, that allows you to update modules in a running application without requiring a full page reload.
 
+**[⬆ Back to Setting Up React App](#Setting-up-react-app)**
 **[⬆ Back to Top](#table-of-contents)**
 
 ---
@@ -80,6 +81,8 @@
 >  
 >  This flow demonstrates how JSX integrates seamlessly with HTML in React, with `index.html` serving as the entry point, `main.jsx` connecting React to the HTML, and `App.jsx` defining the component structure using JSX syntax.
 
+**[⬆ Back to React Basics](#react-basics)**
+**[⬆ Back to Top](#table-of-contents)**
 ---
 
 ### React JSX
@@ -123,34 +126,42 @@
 > }
 > ```
 
-### 5. What are React elements, and how are they related to JSX?
-**Answer:**  
-React elements are the building blocks of a React application. They are lightweight representations of actual DOM elements, created using JSX. React elements describe what you want to see on the screen and are eventually rendered into the DOM by React.
+**What are React elements, and how are they related to JSX?**
+> 
+> React elements are the building blocks of a React application. They are lightweight representations of actual DOM elements, created using JSX. React elements describe what you want to see on the screen and are eventually rendered into the DOM by React.
 
-### 6. Explain the role of Babel in working with JSX.
-**Answer:**  
-Babel is a JavaScript compiler that transforms JSX into regular JavaScript, making it compatible with browsers. Since browsers do not natively understand JSX, Babel is essential for converting JSX into a format that can be interpreted and executed by the browser.
+**Explain the role of Babel in working with JSX.**
+> Babel is a JavaScript compiler that transforms JSX into regular JavaScript, making it compatible with browsers. Since browsers do not natively understand JSX, Babel is essential for converting JSX into a format that can be interpreted and executed by the browser.
 
-### 7. How do you render JSX elements into the DOM in a React application?
-**Answer:**  
-JSX elements are rendered into the DOM using the `ReactDOM.createRoot` method, followed by the `render` function. For example:
-```jsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-```
+**What is the significance of wrapping multiple JSX elements in a single parent element?**
+> In JSX, multiple elements must be wrapped in a single parent element because JSX expressions must have a single root node. This rule ensures that the component returns one cohesive element, which simplifies rendering logic and maintains a consistent structure in the DOM.
 
-### 8. What is the significance of wrapping multiple JSX elements in a single parent element?
-**Answer:**  
-In JSX, multiple elements must be wrapped in a single parent element because JSX expressions must have a single root node. This rule ensures that the component returns one cohesive element, which simplifies rendering logic and maintains a consistent structure in the DOM.
 
-### 9. How does React handle HTML attributes differently than standard HTML?
-**Answer:**  
-React uses camelCase naming for HTML attributes. For example, `class` becomes `className`, and `for` becomes `htmlFor` in React to avoid conflicts with JavaScript reserved keywords. This also aligns with JavaScript's naming conventions.
+### React Components
+
+**What is a React Component, and why are they important?**
+> - A React Component is a self-contained, reusable piece of code that functions similarly to JavaScript functions but operates independently and returns HTML (or JSX).
+> - Components are the building blocks of a React application, enabling the creation of complex user interfaces by combining and nesting these components. They promote code reusability, modularity, and maintainability.
+
+**What are the two types of components in React? Provide examples for each.**
+> - **Function-Based Components:**  
+>   Function-based components are simpler and are defined as JavaScript functions. They can use hooks for managing state and lifecycle events.
+>   ```jsx
+>   function Cat() {
+>     return <h1>Meow</h1>;
+>   }
+>   export default Cat;
+>   ```
+> - **Class-Based Components:**  
+>   Class-based components are ES6 classes that extend from `React.Component`. They have a `render()` method that returns the JSX to be rendered.
+>   ```jsx
+>   class Cat extends React.Component {
+>     render() {
+>       return <h1>Meow</h1>;
+>     }
+>   }
+>   export default Cat;
+>   ```
+
+
