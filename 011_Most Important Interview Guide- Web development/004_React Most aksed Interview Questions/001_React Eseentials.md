@@ -1,5 +1,4 @@
 ### Table of Contents
-Here's the updated table of contents with the gaps removed:
 
 <!-- TOC_START -->
 | No. | Questions                                                                                                                                            |
@@ -31,32 +30,7 @@ Here's the updated table of contents with the gaps removed:
 | 20  | [How can SEO challenges in SPAs be mitigated?](#how-can-seo-challenges-in-spas-be-mitigated)                                                                                                                                      |
 <!-- TOC_END -->
 
-Got it! Here is your table of contents formatted as requested:
 
-<!-- TOC_START -->
-| No. | Questions |
-| --- | --------- |
-| 1 | [Why is Node.js important for setting up a React project?](#why-is-nodejs-important-for-setting-up-a-react-project) |
-| 2 | [How do you create and start a new React project?](#how-do-you-create-and-start-a-new-react-project) |
-| 3 | [What is the purpose of the `npm run build` command, and what should be done after it?](#what-is-the-purpose-of-the-npm-run-build-command-and-what-should-be-done-after-it) |
-| 4 | [What are the advantages of using Vite over Create React App?](#what-are-the-advantages-of-using-vite-over-create-react-app) |
-| 5 | [What is React?](#what-is-react) |
-| 6 | [What is the history behind React's evolution?](#what-is-the-history-behind-reacts-evolution) |
-| 7 | [What are the major features of React?](#what-are-the-major-features-of-react) |
-| 8 | [How does JSX integrate with HTML in a React application, and what is the typical flow for rendering HTML using JSX in a Vite-powered React project?](#how-does-jsx-integrate-with-html-in-a-react-application-and-what-is-the-typical-flow-for-rendering-html-using-jsx-in-a-vite-powered-react-project) |
-| 9 | [What is JSX in React, and why was it created?](#what-is-jsx-in-react-and-why-was-it-created) |
-| 10 | [What are the key rules for using JSX in React?](#what-are-the-key-rules-for-using-jsx-in-react) |
-| 11 | [How can you apply CSS in JSX?](#how-can-you-apply-css-in-jsx) |
-| 12 | [How can you use JavaScript expressions inside JSX?](#how-can-you-use-javascript-expressions-inside-jsx) |
-| 13 | [What are React elements, and how are they related to JSX?](#what-are-react-elements-and-how-are-they-related-to-jsx) |
-| 14 | [Explain the role of Babel in working with JSX.](#explain-the-role-of-babel-in-working-with-jsx) |
-| 15 | [What is the significance of wrapping multiple JSX elements in a single parent element?](#what-is-the-significance-of-wrapping-multiple-jsx-elements-in-a-single-parent-element) |
-| 16 | [What is a React Component, and why are they important?](#what-is-a-react-component-and-why-are-they-important) |
-| 17 | [What are the two types of components in React? Provide examples for each.](#what-are-the-two-types-of-components-in-react-provide-examples-for-each) |
-| 18 | [What is the main difference between a Single-Page Application (SPA) and a Multi-Page Application (MPA)?](#what-is-the-main-difference-between-a-single-page-application-spa-and-a-multi-page-application-mpa) |
-| 19 | [What are the advantages and disadvantages of using a Single-Page Application (SPA) over a Multi-Page Application (MPA)?](#what-are-the-advantages-and-disadvantages-of-using-a-single-page-application-spa-over-a-multi-page-application-mpa) |
-| 20 | [How can SEO challenges in SPAs be mitigated?](#how-can-seo-challenges-in-spas-be-mitigated) |
-<!-- TOC_END -->
 
 ### Setting Up React App
 
