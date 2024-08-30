@@ -1,4 +1,10 @@
 ### Table of Contents
+.
+
+### Updated Table of Contents
+
+```markdown
+### Table of Contents
 
 <!-- TOC_START -->
 
@@ -30,6 +36,7 @@
 | 19  | [What are the advantages and disadvantages of using a Single-Page Application (SPA) over a Multi-Page Application (MPA)?](#what-are-the-advantages-and-disadvantages-of-using-a-single-page-application-spa-over-a-multi-page-application-mpa) |
 | 20  | [How can SEO challenges in SPAs be mitigated?](#how-can-seo-challenges-in-spas-be-mitigated)                                                                                                                                      |
 <!-- TOC_END -->
+```
 
 
 ### Setting Up React App
